@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(StandAttribute))]
 public class Enemy : Stats
 {
     public Transform target;

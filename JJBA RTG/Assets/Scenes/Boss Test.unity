@@ -257,14 +257,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stands:
-  - standbody: {fileID: 0}
-    button: {fileID: 0}
+  - standbody: {fileID: 8175644}
+    button: {fileID: 1309212935}
     full: 1
-  - standbody: {fileID: 0}
-    button: {fileID: 0}
+  - standbody: {fileID: 2036715096}
+    button: {fileID: 2078307430}
     full: 1
-  - standbody: {fileID: 0}
-    button: {fileID: 0}
+  - standbody: {fileID: 5806357151610920029, guid: b120b300837651b48b7b5714341dc2dc, type: 3}
+    button: {fileID: 127645680}
     full: 1
   combat: {fileID: 300543036}
 --- !u!1 &127645678
@@ -1070,7 +1070,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.1470587, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2081,7 +2081,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.1470587, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2795,7 +2795,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.1470587, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4388,6 +4388,7 @@ GameObject:
   - component: {fileID: 2052493579}
   - component: {fileID: 2052493574}
   - component: {fileID: 2052493580}
+  - component: {fileID: 2052493581}
   m_Layer: 8
   m_Name: Dio
   m_TagString: Untagged
@@ -4604,6 +4605,43 @@ MonoBehaviour:
   stopped: 0
   target: {fileID: 300543044}
   xp: 0
+--- !u!114 &2052493581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052493569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff4192d2e9dbde40bf11a8253800220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bleedDamage: 0
+  bleedTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
+  stunTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
+  floatTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
+  defenseTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
+  hpTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
+  dmgTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
 --- !u!1 &2078307428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4791,7 +4829,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.1470587, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4807,7 +4845,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101536855}
-  m_LocalRotation: {x: 0.13960378, y: -0.000000019048933, z: 0.0000000026856017, w: 0.9902075}
+  m_LocalRotation: {x: 0.13960378, y: 0.000000019048937, z: -0.0000000026856022, w: 0.9902075}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
