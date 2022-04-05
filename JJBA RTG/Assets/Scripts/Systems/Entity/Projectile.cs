@@ -6,15 +6,13 @@ public class Projectile : Stats
 	public Hitbox box;
 	public Timer lifeTime;
 	internal Rigidbody rb;
-		
+	
 	internal override void Start()
 	{
 		base.Start();
 		lifeTime.Start();
 
 		rb = GetComponent<Rigidbody>();
-		
-		box.parent = transform.parent.parent.parent;
 		transform.SetParent(null);
 	}
 	

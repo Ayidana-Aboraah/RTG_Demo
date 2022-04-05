@@ -22,7 +22,7 @@ public class SexPistols : Standx
 		if (ammo < 1) return;
 		
 		float finDamage = pistols * stats.damageMultiplier;
-		bullet.GetComponent<SexBullet>().damageMultiplier = finDamage;
+		bullet.GetComponent<SexBullet>().damageMultiplier = finDamage/2;
 		bullet.GetComponent<SexBullet>().pistolType = pistolType;
 		Instantiate(bullet, firingPoint.position, transform.rotation, firingPoint);
 		ammo--;

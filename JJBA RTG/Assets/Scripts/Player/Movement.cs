@@ -87,7 +87,7 @@ public class Movement : MonoBehaviour
 		dashCooldown.Start();
 		
 		if (MvIn == Vector3.zero)
-			rb.AddForce((transform.forward * -1) * dashForce, ForceMode.Impulse);
+			rb.AddForce((transform.forward * -1) * (dashForce*100), ForceMode.Impulse);
 		else 
 			rb.AddForce(transform.TransformDirection(MvIn) * dashForce, ForceMode.Impulse);
 	}

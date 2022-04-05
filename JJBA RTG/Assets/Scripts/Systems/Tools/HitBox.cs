@@ -16,7 +16,7 @@ public class Hitbox
         Collider[] plrs = Physics.OverlapSphere(point.position, range, opponent);
         foreach (Collider other in plrs)
         {
-            if (other.transform == parent || other.transform == point) continue;
+            if (other.transform == parent) continue;
 
             if (other.GetComponent<Rigidbody>())
                other.GetComponent<Rigidbody>().AddRelativeForce(angle, ForceMode.Impulse);
@@ -30,7 +30,7 @@ public class Hitbox
         Collider[] plrs = Physics.OverlapSphere(point.position, range, opponent);
         foreach (Collider other in plrs)
         {
-            if (other.transform == parent || other.transform == point) continue;
+            if (other.transform == parent) continue;
 
             if (other.GetComponent<Rigidbody>())
                 other.GetComponent<Rigidbody>().AddRelativeForce(angle, ForceMode.Impulse);
@@ -44,7 +44,7 @@ public class Hitbox
         Collider[] plrs = Physics.OverlapSphere(point.position, range, opponent);
         foreach (Collider other in plrs)
         {
-            if (other.transform == parent || other.transform == point) continue;
+            if (other.transform == parent) continue;
 
             if (other.GetComponent<Rigidbody>())
                 other.GetComponent<Rigidbody>().AddRelativeForce(angle, ForceMode.Impulse);
@@ -87,7 +87,7 @@ public class Hitbox
         Collider[] plrs = Physics.OverlapSphere(point.position, range, opponent);
         foreach (Collider other in plrs)
         {
-            if (other.transform == parent || other.transform == point) continue;
+            if (other.transform == parent) continue;
             other.GetComponent<StandAttribute>().StartDebuff(attributeType, attributeDuration, attributeDamage);
         }
     }

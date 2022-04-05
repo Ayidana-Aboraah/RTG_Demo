@@ -37,7 +37,7 @@ public class TheWorldAI : EnemyAI
 		//Phase 1
 		if (distance <= m_TheWorld.atkBox.range && atkTimer.complete) Atk();
 		if (distance <= m_TheWorld.spAtkBox.range / 2 && !spAtkTimer.isRunning) SpAtk();
-		if (distance > throwMin && !ATimers[2].isRunning) A(3, 1);
+		if (distance > throwMin && ATimers[2].complete) A(3, 1);
 	#endregion
 
 	#region Phase 2
