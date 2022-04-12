@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Timer
+public sealed class Timer
 {
 	public bool isRunning, complete;
 	public float maxTime;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Standless : MonoBehaviour
+public sealed class Standless : MonoBehaviour
 {
 	[Header("Standless")]
 	public Hitbox atkBox, barrageBox, heavyBox;

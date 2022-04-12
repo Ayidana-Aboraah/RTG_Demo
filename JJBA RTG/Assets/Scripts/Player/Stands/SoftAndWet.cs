@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SoftAndWet : Melee
+public sealed class SoftAndWet : Melee
 {
 	[Header("Soft And Wet Vars")]
 	public Hitbox A1Box;

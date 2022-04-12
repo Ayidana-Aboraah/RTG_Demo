@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StandDictionary : MonoBehaviour
+public sealed class StandDictionary : MonoBehaviour
 {
 	public StandBody[] standDictions;
 	

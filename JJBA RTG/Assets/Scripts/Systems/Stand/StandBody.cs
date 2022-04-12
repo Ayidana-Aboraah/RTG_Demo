@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StandBody : MonoBehaviour
+public sealed class StandBody : MonoBehaviour
 {
 	[HideInInspector]
 	public string key;

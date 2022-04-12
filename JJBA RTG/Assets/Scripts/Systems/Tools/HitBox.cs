@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Hitbox
+public sealed class Hitbox
 {
     public Vector3 angle;
     public float range;

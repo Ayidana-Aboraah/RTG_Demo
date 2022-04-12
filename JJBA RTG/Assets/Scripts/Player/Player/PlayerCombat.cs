@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem.Interactions;
 
-public class PlayerCombat : MonoBehaviour
+public sealed class PlayerCombat : MonoBehaviour
 {
 	[Header("Stand")] public StandBody stand;
 	bool standOn;

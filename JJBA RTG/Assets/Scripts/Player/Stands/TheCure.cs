@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TheCure : Melee
+public sealed class TheCure : Melee
 {
     public override void initialize()
     {

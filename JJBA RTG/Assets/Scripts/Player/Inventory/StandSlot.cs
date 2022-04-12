@@ -2,7 +2,7 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
-public class StandSlot
+public sealed class StandSlot
 {
 	public StandBody standbody;
 	public Button button;

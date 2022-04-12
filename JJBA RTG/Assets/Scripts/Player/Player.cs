@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : Stats
+public sealed class Player : Stats
 {
 	[Header("Progression System")] public float xp;
 	public float maxXp;

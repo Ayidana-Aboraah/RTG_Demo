@@ -1,6 +1,6 @@
-    using UnityEngine;
+using UnityEngine;
 
-public class StandStorage : MonoBehaviour
+public sealed class StandStorage : MonoBehaviour
 {
 	public StandSlot[] stands = new StandSlot[6];
 	public PlayerCombat combat;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public sealed class Movement : MonoBehaviour
 {
 	public float sensetivity;
 	public Timer dashCooldown;

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class HermitPurple : Standx
+public sealed class HermitPurple : Standx
 {
     [Header("Hitboxes")]
     public Hitbox strongBox;

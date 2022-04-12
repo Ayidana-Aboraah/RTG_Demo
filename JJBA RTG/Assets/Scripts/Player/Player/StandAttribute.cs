@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StandAttribute : MonoBehaviour
+public sealed class StandAttribute : MonoBehaviour
 {
 	public float bleedDamage;
 	float m_Drag;

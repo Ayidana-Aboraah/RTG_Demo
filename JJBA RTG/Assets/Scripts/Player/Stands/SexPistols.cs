@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SexPistols : Standx
+public sealed class SexPistols : Standx
 {
 	public Hitbox atkBox;
 	public Hitbox heavyBox;
