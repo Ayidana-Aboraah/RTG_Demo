@@ -4,7 +4,7 @@ public class Combat : MonoBehaviour
 {
 	[Header("Stand")]
     public StandBody stand;
-	bool standOn;
+	public bool standOn;
 
 	[Header("Posing")]
 	public int recovery;
@@ -13,10 +13,7 @@ public class Combat : MonoBehaviour
 
     //Maybe remove Timers in general
 	#region Timers 
-	public Timer atkTimer;
 	public Timer spAtkTimer;
-	public Timer strongTimer;
-	public Timer heavyTimer;
 	public Timer ultTimer;
 	public Timer[] ATimers = new Timer[9];
 
@@ -25,7 +22,7 @@ public class Combat : MonoBehaviour
 	[Header("Misc")] public LayerMask enemy;
 
 	[HideInInspector] public Standless standless;
-	Animator ani;
+	internal Animator ani;
 	internal Stats stats;
 
 	#region Player Input
@@ -58,15 +55,12 @@ public class Combat : MonoBehaviour
 		m_Start();
 
 		if (stand == null) standOn = false;
-		else
-		{
+		else {
 			standOn = true;
 			
-			atkTimer.maxTime = 0;
 			spAtkTimer.maxTime = 0;
-			heavyTimer.maxTime = 0;
-			strongTimer.maxTime = 0;
-			
+			ultTimer.maxTime = 0;
+
 			ATimers[0].maxTime = 0;
 			ATimers[1].maxTime = 0;
 			ATimers[2].maxTime = 0;
@@ -109,7 +103,7 @@ public class Combat : MonoBehaviour
 
 	public void Atk()
 	{
-		if (atkTimer.isRunning || stats.stopped) return;
+		if (stats.stopped) return;
 
 		ani.SetBool("Atk", true);
 		if (standOn) stand.ani.SetTrigger("Atk");
@@ -125,7 +119,7 @@ public class Combat : MonoBehaviour
 
 	public void Strong()
 	{
-		if (strongTimer.isRunning || stats.stopped) return;
+		if (stats.stopped) return;
 
 		ani.SetBool("Strong", true);
 		if (standOn) stand.ani.SetTrigger("Strong");
@@ -133,7 +127,7 @@ public class Combat : MonoBehaviour
 
 	public void Heavy()
 	{
-		if (heavyTimer.isRunning || stats.stopped) return;
+		if (stats.stopped) return;
 
 		ani.SetBool("Heavy", true);
 		if (standOn) stand.ani.SetTrigger("Heavy");
@@ -141,7 +135,7 @@ public class Combat : MonoBehaviour
 
 	public void A(int AType, int TypeVariant)
 	{
-		if (ATimers[AType - 1].isRunning || stats.stopped) return;
+		if (stats.stopped) return;
 
 		ani.SetBool("A" + AType + "." + TypeVariant, true);
 		if (standOn) stand.ani.SetTrigger("A" + AType + "." + TypeVariant);
@@ -162,13 +156,10 @@ public class Combat : MonoBehaviour
 
 	private void UpdateTimers()
 	{
-		atkTimer.UpdateTimer();
 		spAtkTimer.UpdateTimer();
-		strongTimer.UpdateTimer();
-		heavyTimer.UpdateTimer();
 		ultTimer.UpdateTimer();
-		
-		foreach (Timer ATimer in ATimers) ATimer.UpdateTimer();
+
+		foreach(Timer timer in ATimers) timer.UpdateTimer();
 	}
 
 	#endregion

@@ -20,8 +20,7 @@ public sealed class StandAttribute : MonoBehaviour
 	{
 		UpdateTimers();
 		
-		// TimeStop is a type of stun (I guess)
-		if (stunTimer.complete)
+		if (stunTimer.complete) // TimeStop is a type of stun (I guess)
 		{
 			GetComponent<Stats>().stopped = false;
 			GetComponent<Rigidbody>().useGravity = true;
@@ -91,8 +90,7 @@ public sealed class StandAttribute : MonoBehaviour
 	{
 		switch (effectType)
 		{
-			//bleeding/Poison
-			case 1:
+			case 1: //bleeding/Poison
 				bleedTimer.maxTime = duration;
 				bleedDamage = damage;
 				bleedTimer.Start();

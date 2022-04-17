@@ -34,10 +34,10 @@ public abstract class Standx : MonoBehaviour
 	public virtual void SetCooldowns(PlayerCombat combat)
 	{
 		//Set each cooldown for the combat timers/cooldowns
-		combat.atkTimer.maxTime = atkCooldown;
+		// combat.atkTimer.maxTime = atkCooldown;
 		combat.spAtkTimer.maxTime = spAtkCooldown;
-		combat.strongTimer.maxTime = strongCooldown;
-		combat.heavyTimer.maxTime = heavyCooldown;
+		// combat.strongTimer.maxTime = strongCooldown;
+		// combat.heavyTimer.maxTime = heavyCooldown;
 		combat.ultTimer.maxTime = ultCooldown;
 
 		combat.ATimers[0].maxTime = ACooldowns[0];
@@ -45,10 +45,7 @@ public abstract class Standx : MonoBehaviour
 		combat.ATimers[2].maxTime = ACooldowns[2];
 
 		//Maybe reset timers
-		combat.atkTimer.ResetTimer();
 		// combat.spAtkTimer.ResetTimer(); //Removed for balancing
-		combat.strongTimer.ResetTimer();
-		combat.heavyTimer.ResetTimer();
 		combat.ultTimer.ResetTimer();
 		
 		combat.ATimers[0].ResetTimer();
