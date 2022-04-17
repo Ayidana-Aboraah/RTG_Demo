@@ -1,15 +1,37 @@
-public class TrainingMenu : Menu
+using TMPro;
+
+public sealed class TrainingMenu : Menu
 {
-    //DummyAI dummy;
+    public Dummy dummy;
 
-    public override void Start()
-    {
-        base.Start();
-        // dummy = FindObjectOfType<DummyAI>();
-    }
+    public TMP_Text mode_text;
 
-    public void DummyStates(int state)
+    public void ChangeDummyMode()
     {
-        // dummy.dummyState = state;
+        dummy.mode++;
+        if (dummy.mode > 5) dummy.mode = -1; //Change the max every time a new AI is added
+        
+        switch(dummy.mode){
+            case 5: mode_text.text = "Dodge";
+            break;
+
+            case 4: mode_text.text = "Run";
+            break;
+            
+            case 3: mode_text.text = "Block";
+            break;
+            
+            case 2: mode_text.text = "Attack";
+            break;
+            
+            case 1: mode_text.text = "Follow";
+            break;
+
+            case 0: mode_text.text = "Attack And Follow";
+            break;
+
+            case -1: mode_text.text = "None";
+            break;
+        }
     }
 }

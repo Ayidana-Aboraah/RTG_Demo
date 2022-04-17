@@ -3,7 +3,7 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
 	[Header("Stats")]
-	public float hp, maxHp,speed;
+	public float hp, maxHp,speed = 1;
 	public int durability;
 	
 	[Header("Shield")]

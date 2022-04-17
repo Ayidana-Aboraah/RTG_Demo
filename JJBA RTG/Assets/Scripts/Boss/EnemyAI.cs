@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Enemy), typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
 {
 	[Header("Stand")] public StandBody stand;
@@ -41,7 +42,7 @@ public class EnemyAI : MonoBehaviour
 		// UpdateAnimations();
 		InputCycles();
 		Movement();
-		stand.stand.ApplyAttributes();
+		if (stand != null) stand.stand.ApplyAttributes();
 	}
 
 	#region Basics

@@ -34,7 +34,6 @@ public class TheWorldAI : EnemyAI
 		spawnTimer.UpdateTimer();
 
 	#region Phase 1
-		//Phase 1
 		if (distance <= m_TheWorld.atkBox.range && atkTimer.complete) Atk();
 		if (distance <= m_TheWorld.spAtkBox.range / 2 && !spAtkTimer.isRunning) SpAtk();
 		if (distance > throwMin && ATimers[2].complete) A(3, 1);
@@ -54,14 +53,12 @@ public class TheWorldAI : EnemyAI
 	#endregion
 
 	#region Phase 3
-		//Phase 3
 		if (stats.hp > 100) return;
+		
 
 		if (distance <= poseDistance && !posing)
-		{
 			if (stats.shieldHp >= 0 && !stats.blocking) Block(true);
 			else if (stats.shieldHp < 0 && !posing) Pose(true);
-		}
 
 		if (distance > poseDistance)
 		{
