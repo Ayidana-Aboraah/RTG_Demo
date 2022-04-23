@@ -29,12 +29,6 @@ public sealed class StandAttribute : MonoBehaviour
 			stunTimer.complete = false;
 		}
 
-		if (!bleedTimer.complete)
-		{
-			int rand = Random.Range(0, 3);
-			if (rand == 1) GetComponent<Stats>().hp -= bleedDamage;
-		}
-
 		if (floatTimer.complete)
 		{
 			GetComponent<Rigidbody>().drag = m_Drag;
@@ -57,6 +51,11 @@ public sealed class StandAttribute : MonoBehaviour
 		{
 			GetComponent<Stats>().damageMultiplier = m_BaseDamgeMulitiplier;
 			dmgTimer.complete = false;
+		}
+
+		if (bleedTimer.isRunning)
+		{
+			if (bleedTimer.m_CurrentTime % 2.0f == 0) GetComponent<Stats>().hp -= bleedDamage;
 		}
 	}
 	public void StartDebuff(int effectType, float duration)

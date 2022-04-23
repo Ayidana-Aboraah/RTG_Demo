@@ -303,8 +303,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - standbody: {fileID: 0}
-    button: {fileID: 0}
+  - standbody: {fileID: 1132622403849235158, guid: ed492f77e125e7b42a203d07418cb677, type: 3}
+    button: {fileID: 2068995377}
+    full: 0
+  - standbody: {fileID: 5806357151610920029, guid: b120b300837651b48b7b5714341dc2dc, type: 3}
+    button: {fileID: 2020434651}
+    full: 0
+  - standbody: {fileID: 7099024290185987081, guid: 8cb9a7dff9fbec54fa6fd117e6978f95, type: 3}
+    button: {fileID: 1388336463}
     full: 0
   - standbody: {fileID: 0}
     button: {fileID: 0}
@@ -315,13 +321,7 @@ MonoBehaviour:
   - standbody: {fileID: 0}
     button: {fileID: 0}
     full: 0
-  - standbody: {fileID: 0}
-    button: {fileID: 0}
-    full: 0
-  - standbody: {fileID: 0}
-    button: {fileID: 0}
-    full: 0
-  combat: {fileID: 1551195227}
+  combat: {fileID: 1551195236}
 --- !u!1 &80817821
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +661,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207194196}
-  m_LocalRotation: {x: 0.15373713, y: -1e-45, z: -0, w: 0.9881118}
+  m_LocalRotation: {x: 0.13960378, y: 0.000000017037891, z: -0.0000000024020763, w: 0.9902075}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 56409364}
         m_TargetAssemblyTypeName: StandStorage, Assembly-CSharp
         m_MethodName: SwitchStand
         m_Mode: 3
@@ -1706,7 +1706,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691874571}
-  m_LocalRotation: {x: 0.11774255, y: -0.000000004271675, z: 5.0648097e-10, w: 0.9930442}
+  m_LocalRotation: {x: 0.10354242, y: -0, z: -0, w: 0.99462503}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 2
-  m_FollowOffset: {x: 0, y: 2.7510014, z: -8.62672}
+  m_FollowOffset: {x: 0, y: 2.5, z: -8.69}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2577,7 +2577,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 56409364}
         m_TargetAssemblyTypeName: StandStorage, Assembly-CSharp
         m_MethodName: SwitchStand
         m_Mode: 3
@@ -2778,7 +2778,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041367171}
-  m_LocalRotation: {x: 0.13573845, y: 0.00000001704713, z: -0.000000002335567, w: 0.9907447}
+  m_LocalRotation: {x: 0.12156932, y: 1e-45, z: -0, w: 0.992583}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2861,7 +2861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 2
-  m_FollowOffset: {x: 0, y: 2.7510014, z: -8.62672}
+  m_FollowOffset: {x: 0, y: 2.5, z: -8.69}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3193,7 +3193,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 56409364}
         m_TargetAssemblyTypeName: StandStorage, Assembly-CSharp
         m_MethodName: SwitchStand
         m_Mode: 3
@@ -3278,8 +3278,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 1551195235}
+  m_Follow: {fileID: 1551195235}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 40
@@ -3299,7 +3299,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.54
+    Value: 0.5
     m_SpeedMode: 0
     m_MaxSpeed: 2
     m_AccelTime: 0.2
@@ -3372,7 +3372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402431860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.48, y: 3.973075, z: -5.8001356}
+  m_LocalPosition: {x: -1.48, y: 3.7220736, z: -5.863415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3698,7 +3698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 56409364}
         m_TargetAssemblyTypeName: StandStorage, Assembly-CSharp
         m_MethodName: SwitchStand
         m_Mode: 3
@@ -3822,7 +3822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 2
-  m_FollowOffset: {x: 0, y: 2.7510014, z: -8.62672}
+  m_FollowOffset: {x: 0, y: 2.5, z: -8.69}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -4026,7 +4026,7 @@ GameObject:
   - component: {fileID: 1551195230}
   - component: {fileID: 1551195229}
   - component: {fileID: 1551195228}
-  - component: {fileID: 1551195227}
+  - component: {fileID: 1551195236}
   - component: {fileID: 1551195226}
   - component: {fileID: 1551195225}
   m_Layer: 8
@@ -4053,26 +4053,32 @@ MonoBehaviour:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   stunTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   floatTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   defenseTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   hpTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   dmgTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
 --- !u!114 &1551195226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4118,72 +4124,6 @@ MonoBehaviour:
   gunDamage: 5
   ammo: 4
   fireRange: 0
---- !u!114 &1551195227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551195224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98650a5100eb27441b89a55895ae5bdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stand: {fileID: 0}
-  recovery: 0
-  atkTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
-  spAtkTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
-  strongTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
-  heavyTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
-  ultTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
-  ATimers:
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  - isRunning: 0
-    complete: 0
-    maxTime: 0
-  enemy:
-    serializedVersion: 2
-    m_Bits: 256
-  standless: {fileID: 0}
 --- !u!114 &1551195228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4206,6 +4146,7 @@ MonoBehaviour:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   blocking: 0
   blockType: 0
   hpMultiplier: 1
@@ -4234,6 +4175,7 @@ MonoBehaviour:
     isRunning: 0
     complete: 0
     maxTime: 2.5
+    m_CurrentTime: 0
   ground:
     serializedVersion: 2
     m_Bits: 8
@@ -4355,6 +4297,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1551195236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551195224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0287269f850cb6d4391523dc5f85a00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stand: {fileID: 0}
+  standOn: 0
+  recovery: 0
+  spAtkTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  ultTimer:
+    isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  ATimers:
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  - isRunning: 0
+    complete: 0
+    maxTime: 0
+    m_CurrentTime: 0
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1775345377
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,8 +4709,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805305790}
-  m_LocalRotation: {x: 0.13718009, y: 0.000000017043714, z: -0.0000000023603726, w: 0.99054617}
-  m_LocalPosition: {x: -1.48, y: 3.973075, z: -5.8001356}
+  m_LocalRotation: {x: 0.12156933, y: 1.6791131e-10, z: 2.0565352e-11, w: 0.992583}
+  m_LocalPosition: {x: -1.48, y: 3.7220736, z: -5.863415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5187,6 +5194,7 @@ MonoBehaviour:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   blocking: 0
   blockType: 0
   hpMultiplier: 1
@@ -5213,26 +5221,32 @@ MonoBehaviour:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   stunTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   floatTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   defenseTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   hpTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   dmgTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
 --- !u!114 &1975783864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5246,32 +5260,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stand: {fileID: 0}
-  posing: 0
+  standOn: 0
   recovery: 0
-  atkTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
   spAtkTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
-  strongTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
-  heavyTimer:
-    isRunning: 0
-    complete: 0
-    maxTime: 0
+    m_CurrentTime: 0
   ultTimer:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   ATimers: []
+  enemy:
+    serializedVersion: 2
+    m_Bits: 0
+  target: {fileID: 1551195235}
   distance: 0
   minDistance: 3
-  mode: 0
+  mode: -1
 --- !u!195 &1975783865
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5491,7 +5499,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 56409364}
         m_TargetAssemblyTypeName: StandStorage, Assembly-CSharp
         m_MethodName: SwitchStand
         m_Mode: 3
@@ -5646,7 +5654,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 56409364}
         m_TargetAssemblyTypeName: StandStorage, Assembly-CSharp
         m_MethodName: SwitchStand
         m_Mode: 3

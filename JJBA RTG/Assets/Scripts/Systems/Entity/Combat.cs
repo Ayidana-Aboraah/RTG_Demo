@@ -11,46 +11,22 @@ public class Combat : MonoBehaviour
 
 	[Header("Cooldowns")]
 
-    //Maybe remove Timers in general
 	#region Timers 
 	public Timer spAtkTimer;
 	public Timer ultTimer;
-	public Timer[] ATimers = new Timer[9];
+	public Timer[] ATimers = new Timer[9]; //if !utilized just remove
 
 	#endregion
 
 	[Header("Misc")] public LayerMask enemy;
 
-	[HideInInspector] public Standless standless;
 	internal Animator ani;
 	internal Stats stats;
 
-	#region Player Input
-
-	PlayerInput input;
-
-	private void Awake()
-	{
-		input = new PlayerInput();
-	}
-
-	private void OnEnable()
-	{
-		input.Enable();
-	}
-
-	private void OnDisable()
-	{
-		input.Disable();
-	}
-
-	#endregion
-
 	private void Start()
 	{
-		stats = GetComponent<Player>();
+		stats = GetComponent<Stats>();
 		ani = GetComponent<Animator>();
-		standless = GetComponent<Standless>();
 		
 		m_Start();
 
@@ -70,11 +46,8 @@ public class Combat : MonoBehaviour
 	internal void Update()
 	{
 		UpdateTimers();
-		ani.SetBool("Standless", !standOn);
-
-		if (standOn) stand.stand.ApplyAttributes();
-
 		m_Update();
+		if (standOn) stand.stand.ApplyAttributes();
 	}
 
 	#region Basics
@@ -105,7 +78,7 @@ public class Combat : MonoBehaviour
 	{
 		if (stats.stopped) return;
 
-		ani.SetBool("Atk", true);
+		ani.SetTrigger("Atk");
 		if (standOn) stand.ani.SetTrigger("Atk");
 	}
 
@@ -113,7 +86,7 @@ public class Combat : MonoBehaviour
 	{
 		if (spAtkTimer.isRunning || stats.stopped) return;
 
-		ani.SetBool("SpAtk", true);
+		ani.SetTrigger("SpAtk");
 		if (standOn) stand.ani.SetTrigger("SpAtk");
 	}
 
@@ -121,7 +94,7 @@ public class Combat : MonoBehaviour
 	{
 		if (stats.stopped) return;
 
-		ani.SetBool("Strong", true);
+		ani.SetTrigger("Strong");
 		if (standOn) stand.ani.SetTrigger("Strong");
 	}
 
@@ -129,15 +102,15 @@ public class Combat : MonoBehaviour
 	{
 		if (stats.stopped) return;
 
-		ani.SetBool("Heavy", true);
+		ani.SetTrigger("Heavy");
 		if (standOn) stand.ani.SetTrigger("Heavy");
 	}
 
 	public void A(int AType, int TypeVariant)
 	{
-		if (stats.stopped) return;
+		if (ATimers[AType].isRunning || stats.stopped) return;
 
-		ani.SetBool("A" + AType + "." + TypeVariant, true);
+		ani.SetTrigger("A" + AType + "." + TypeVariant);
 		if (standOn) stand.ani.SetTrigger("A" + AType + "." + TypeVariant);
 	}
 
@@ -147,7 +120,7 @@ public class Combat : MonoBehaviour
 		if(ultTimer.isRunning || stats.stopped) return;
 		
 		if (standOn) stand.stand.Ult();
-		else ani.SetBool("Ult", true); //Fill in until we add a proper ultimate technique
+		else ani.SetTrigger("Ult"); //Fill in until we add a proper ultimate technique
 	}
 
 	#endregion

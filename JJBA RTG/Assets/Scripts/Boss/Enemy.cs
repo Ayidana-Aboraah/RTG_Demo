@@ -8,8 +8,7 @@ public class Enemy : Stats
 
     public override void Die()
     {
-        //This enemy stores an item, probably give it to the player
-        if (target != null) target.GetComponent<Player>().AddXp(xp);
+        if (target != null) target.GetComponent<Player>().AddXp(xp); // If this enemy stores an item, probably give it to the player
         Destroy(gameObject);
     }
 }

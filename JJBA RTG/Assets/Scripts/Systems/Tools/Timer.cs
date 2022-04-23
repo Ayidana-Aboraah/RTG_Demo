@@ -5,7 +5,7 @@ public sealed class Timer
 {
 	public bool isRunning, complete;
 	public float maxTime;
-	private float m_CurrentTime;
+	[HideInInspector] public float m_CurrentTime;
 
 	public Timer(float maxTime, bool onStart)
 	{

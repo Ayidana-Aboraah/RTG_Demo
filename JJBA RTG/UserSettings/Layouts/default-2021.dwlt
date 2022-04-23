@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 302
     height: 454
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -252,7 +252,7 @@ MonoBehaviour:
   - {fileID: 18}
   - {fileID: 19}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -322,22 +322,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/Boss
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/Boss
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Projects\[Unity]\Collaboration\RTG_Demo\JJBA RTG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2c630000
-    m_LastClickedID: 25388
-    m_ExpandedIDs: 000000002c6300002e6300003063000032630000346300003663000000ca9a3b
+    scrollPos: {x: 0, y: 116}
+    m_SelectedIDs: fc630000
+    m_LastClickedID: 25596
+    m_ExpandedIDs: 00000000286200002a6200002c6200002e6200003062000032620000f263000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -365,7 +365,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002c6300002e63000030630000326300003463000036630000
+    m_ExpandedIDs: 00000000286200002a6200002c6200002e6200003062000032620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -409,7 +409,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -452,23 +452,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5c5f0000
-      m_LastClickedID: 24412
-      m_ExpandedIDs: 02fbffff3c5f0000
+      m_SelectedIDs: 6c5f0000
+      m_LastClickedID: 24428
+      m_ExpandedIDs: 02fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Player
+        m_OriginalName: Player
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 24564
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -736,9 +736,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -8.027044, y: 1.6917167, z: -10.548401}
+    m_Target: {x: -3.653988, y: -5.615614, z: 4.2676}
     speed: 2
-    m_Value: {x: -8.027044, y: 1.6917167, z: -10.548401}
+    m_Value: {x: -3.653988, y: -5.615614, z: 4.2676}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -785,13 +785,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.26331633, y: 0.5805278, z: -0.20588312, w: -0.7424719}
+    m_Target: {x: -0.2841954, y: 0.64094627, z: -0.27728838, w: -0.65691197}
     speed: 2
-    m_Value: {x: -0.2633163, y: 0.5805277, z: -0.20588309, w: -0.7424718}
+    m_Value: {x: -0.2841952, y: 0.6409459, z: -0.2772882, w: -0.65691155}
   m_Size:
-    m_Target: 33.245422
+    m_Target: 18.7486
     speed: 2
-    m_Value: 33.245422
+    m_Value: 18.7486
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -877,7 +877,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1

@@ -18,6 +18,8 @@ public sealed class StandStorage : MonoBehaviour
 
 		slots[idx].standbody.Spawn(combat.transform);
 		combat.stand = combat.GetComponentInChildren<StandBody>();
+		combat.standOn = true;
+		combat.ani.SetBool("Standless", false);
 
 		slots[idx].standbody.stand.SetCooldowns(combat);
 	}

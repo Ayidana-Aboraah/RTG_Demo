@@ -1,7 +1,6 @@
-using UnityEngine;
 using UnityEngine.InputSystem.Interactions;
 
-public class PlayerCombat : Combat{
+public sealed class PlayerCombat : Combat{
 
 	#region Player Input
 
@@ -24,6 +23,13 @@ public class PlayerCombat : Combat{
 
 	#endregion
 
+	internal override void m_Start(){
+		ani.SetBool("Standless", !standOn);
+		Inputs();
+	}
+
+    internal override void m_Update(){}
+
     public void Block(){
         Block(!stats.blocking);
     }
@@ -36,15 +42,19 @@ public class PlayerCombat : Combat{
 		if (stats.stopped) return;
 		
 		standOn = !standOn;
+		
 		stand.body.SetActive(standOn);
 
-		if (standOn) return;
+		ani.SetBool("Standless", !standOn);
 
-		spAtkTimer.maxTime = 0;
+		// Commented due to a possible no cooldown bug for these things, so best to leave it out while testing
+		// if (standOn) return;
+
+		// spAtkTimer.maxTime = 0;
 		
-		ATimers[0].maxTime = 0;
-		ATimers[1].maxTime = 0;
-		ATimers[2].maxTime = 0;
+		// ATimers[0].maxTime = 0;
+		// ATimers[1].maxTime = 0;
+		// ATimers[2].maxTime = 0;
 	}
 
     public void ClearStands()
@@ -52,8 +62,14 @@ public class PlayerCombat : Combat{
 		standOn = false;
 		stand = null;
 		
-		if (transform.childCount < 2) return;
-		
+		// if (transform.childCount == 1) return; // The only thing in there right now is the stand inventory
+
+		//In case the method after this doesn't work
+		// for (int i = 0; i < transform.childCount; i++){
+		// 	StandBody body = transform.GetChild(i).GetComponent<StandBody>();
+		// 	if (body != null) body.Despawn();
+		// }
+
 		StandBody[] stands = GetComponentsInChildren<StandBody>();
 		foreach (StandBody body in stands) body.Despawn();
 	}

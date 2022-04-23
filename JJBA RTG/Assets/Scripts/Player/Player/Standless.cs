@@ -23,7 +23,7 @@ public sealed class Standless : MonoBehaviour
 
 		if (!Physics.Raycast(shot, out hit, fireRange, atkBox.opponent) || ammo < 1) return;
 
-		hit.collider.GetComponent<Player>().TakeDamage(gunDamage);
+		hit.collider.GetComponent<Stats>().TakeDamage(gunDamage);
 		ammo--;
 	}
 

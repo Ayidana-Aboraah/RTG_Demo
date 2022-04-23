@@ -92,9 +92,8 @@ public class EnemyAI : MonoBehaviour
 		stand.ani.SetTrigger("A" + AType.ToString() + "." + TypeVariant.ToString());
 		ATimers[AType - 1].Start();
 	}
-
-	//Figure out how to make Ultimate cutscene thing
-	public void Ult()
+	
+	public void Ult() // Figure out how to make Ultimate cutscene thing
 	{
 		stand.stand.Ult();
 	}

@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public sealed class Dummy : EnemyAI
+public sealed class Dummy : EnemyCombat
 {
     public float minDistance;
-    [HideInInspector]public int mode = -1;
+    public int mode = -1;
 
-    public override void InputCycles()
+    internal override void Inputs()
     {
-        base.InputCycles();
-
         switch (mode)
         {
             case 5: // Dodge

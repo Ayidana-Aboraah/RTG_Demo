@@ -6,6 +6,7 @@ public class EnemyCombat : Combat
 {
     [Header("Enemy Combat")]
     public Transform target;
+    public float distance;
     internal NavMeshAgent agent;
 
     internal override void m_Start()
@@ -16,6 +17,7 @@ public class EnemyCombat : Combat
 
     internal override void m_Update()
     {
+        if (target != null) distance = Vector3.Distance(transform.position, target.position);
         Inputs();
     }
 
@@ -23,4 +25,5 @@ public class EnemyCombat : Combat
 	{
 		agent.SetDestination(target.position);
 	}
+    internal override void Inputs(){}
 }
