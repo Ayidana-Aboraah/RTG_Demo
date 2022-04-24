@@ -51,6 +51,7 @@ public sealed class PlayerCombat : Combat{
 		// if (standOn) return;
 
 		// spAtkTimer.maxTime = 0;
+		// ultTimer.maxTime = 0;
 		
 		// ATimers[0].maxTime = 0;
 		// ATimers[1].maxTime = 0;

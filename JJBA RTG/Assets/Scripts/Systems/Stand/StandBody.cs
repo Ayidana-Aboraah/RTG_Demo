@@ -2,19 +2,12 @@ using UnityEngine;
 
 public sealed class StandBody : MonoBehaviour
 {
-	[HideInInspector]
-	public string key;
+	[HideInInspector] public string key;
 	public GameObject body;
 	public Animator ani;
 	public Standx stand;
 	//public SkillTree tree;
-	public bool skin;
-	
-	void Start()
-	{
-		Initialize();		
-	}
-	
+
 	public void Initialize()
 	{
 		body = gameObject;

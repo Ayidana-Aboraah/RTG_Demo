@@ -2,7 +2,6 @@ using UnityEngine;
 
 public sealed class SexPistols : Standx
 {
-	public Hitbox atkBox;
 	public Hitbox heavyBox;
 	[Header("Gun")]
 	public float bulletDmg, gunRange;
@@ -15,14 +14,15 @@ public sealed class SexPistols : Standx
 	private void Start()
 	{
 		stats = GetComponentInParent<Player>();
+		pistols = 6;
 		ammo = 6;
 	}
 	
 	public void shoot(int pistolType){
 		if (ammo < 1) return;
 		
-		float finDamage = pistols * stats.damageMultiplier;
-		bullet.GetComponent<SexBullet>().damageMultiplier = finDamage/2;
+		float finDamage = (bulletDmg *(pistols/2)) * stats.damageMultiplier;
+		bullet.GetComponent<SexBullet>().damageMultiplier = finDamage;
 		bullet.GetComponent<SexBullet>().pistolType = pistolType;
 		Instantiate(bullet, firingPoint.position, transform.rotation, firingPoint);
 		ammo--;
@@ -68,6 +68,7 @@ public sealed class SexPistols : Standx
 	public override void A2()
 	{
 		if(aimbotTarget == null) return;
+		
 		bullet.GetComponent<SexBullet>().Target(aimbotTarget);
 		shoot(0);
 		bullet.GetComponent<SexBullet>().DeTarget();
@@ -78,13 +79,8 @@ public sealed class SexPistols : Standx
 		ammo = 6;
 	}
 	
-	public void AtkSL()
-	{
-		atkBox.Atk();		
-	}
-	
 	public override void DrawBoxes()
 	{
-		Gizmos.DrawLine(transform.position, Vector3.forward * gunRange);
+		Gizmos.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * gunRange);
 	}
 }

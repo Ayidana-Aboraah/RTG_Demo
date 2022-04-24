@@ -14,7 +14,7 @@ public class Combat : MonoBehaviour
 	#region Timers 
 	public Timer spAtkTimer;
 	public Timer ultTimer;
-	public Timer[] ATimers = new Timer[9]; //if !utilized just remove
+	public Timer[] ATimers = new Timer[9]; // if !utilized just remove
 
 	#endregion
 

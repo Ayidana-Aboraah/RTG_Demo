@@ -3,10 +3,7 @@ using UnityEngine;
 public abstract class Standx : MonoBehaviour
 {
 	[Header("Cooldown")]
-	public float atkCooldown;
 	public float spAtkCooldown;
-	public float strongCooldown;
-	public float heavyCooldown;
 	public float ultCooldown;
 	public float[] ACooldowns = new float[3];
 
@@ -46,7 +43,7 @@ public abstract class Standx : MonoBehaviour
 
 		//Maybe reset timers
 		// combat.spAtkTimer.ResetTimer(); //Removed for balancing
-		combat.ultTimer.ResetTimer();
+		// combat.ultTimer.ResetTimer();
 		
 		combat.ATimers[0].ResetTimer();
 		combat.ATimers[1].ResetTimer();
