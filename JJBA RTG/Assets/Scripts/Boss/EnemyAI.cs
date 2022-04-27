@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
 	#endregion
 
 	[Header("Misc")] public float distance;
+	public Transform target;
 
 	private Animator ani;
 	internal Enemy stats;
@@ -126,11 +127,11 @@ public class EnemyAI : MonoBehaviour
 
 	public virtual void InputCycles()
 	{
-		distance = Vector3.Distance(transform.position, stats.target.position);
+		distance = Vector3.Distance(transform.position, target.position);
 	}
 
 	public virtual void Movement()
 	{
-		agent.SetDestination(stats.target.position);
+		agent.SetDestination(target.position);
 	}
 }

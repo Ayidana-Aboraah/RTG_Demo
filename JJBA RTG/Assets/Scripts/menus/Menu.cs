@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
 	}
 	#endregion
 
-	public virtual void Start()
+	internal virtual void Start()
 	{
 		input.Menu.Pause.started += _ => Evaluate();
 	}
@@ -54,9 +54,24 @@ public class Menu : MonoBehaviour
 		Time.timeScale = 1f;
 		SceneManager.LoadScene(idx);
 	}
+
+	public void LoadLockedScene(int scene){
+		if ((PrototypeProgression.completion & (1 << scene)) > 0) //Check bit position using the scene to select the position
+            SceneManager.LoadScene(scene);
+	}
 	
 	public void QuitGame()
 	{
 		Application.Quit();
 	}
+}
+
+[System.Serializable]
+public static class PrototypeProgression
+{
+    public static byte completion;
+
+    public static void Completed(byte boss){
+        completion |= boss;
+    }
 }
