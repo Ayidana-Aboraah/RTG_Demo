@@ -5,7 +5,9 @@ public sealed class Movement : MonoBehaviour
 	public float sensetivity;
 	public Timer dashCooldown;
 	public LayerMask ground;
-	public float jumpForce, dashForce;
+	public float speed, jumpForce, dashForce;
+	public short jumps = 2;
+	public short maxJumps = 2;
 
 	[HideInInspector] public Animator ani;
 	[HideInInspector] Vector3 MvIn;
@@ -55,14 +57,13 @@ public sealed class Movement : MonoBehaviour
 	{
 		float x = input.Movement.Horizontal.ReadValue<float>();
 		float y = input.Movement.Vertical.ReadValue<float>();
-		
+
 		// ani.SetFloat("x", x);
 		// ani.SetFloat("y", y);
 		
 		MvIn = new Vector3(x, 0f, y);
-		Vector3 mvVec = transform.TransformDirection(MvIn) * stats.speed;
 		
-		rb.MovePosition(transform.position + (mvVec / 2));
+		rb.MovePosition(transform.position + (transform.TransformDirection(MvIn) * speed/10));
 	}
 	
 	private void Camera()
@@ -76,18 +77,22 @@ public sealed class Movement : MonoBehaviour
 
 	public void Jump()
 	{
-		if (Physics.CheckSphere(transform.position + Vector3.down, .5f, ground) && !stats.stopped)
+		if (jumps > 0){
 			rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+			jumps -= 1;
+		}
+		else if (Physics.CheckSphere(transform.position + Vector3.down, .15f, ground))
+			jumps = maxJumps;
 	}
 
 	public void Dash()
 	{
-		if (dashCooldown.isRunning || stats.stopped) return;
+		if (dashCooldown.isRunning) return;
 	
 		dashCooldown.Start();
 		
 		if (MvIn == Vector3.zero)
-			rb.AddForce((transform.forward * -1) * (dashForce*100), ForceMode.Impulse);
+			rb.AddForce((transform.forward * -1) * (dashForce*100), ForceMode.Acceleration);
 		else 
 			rb.AddForce(transform.TransformDirection(MvIn) * dashForce, ForceMode.Impulse);
 	}
