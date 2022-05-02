@@ -2,14 +2,10 @@ using UnityEngine;
 
 public sealed class Player : Stats
 {
-	[Header("Progression System")] public float xp;
-	public float maxXp;
-	public int level;
-	public int skillPoints;
-
-	//Uncomment that if when implementing online;
-	//If it is the best option
-	// [Header("Death")] public GameObject deathMenu;
+	[Header("Progression System")] 
+	public float xp, maxXp;
+	public int level, skillPoints;
+	// [Header("Death")] public GameObject deathMenu; //reimplement for online if nesseccary
 
 	public void AddXp(float newXp)
 	{

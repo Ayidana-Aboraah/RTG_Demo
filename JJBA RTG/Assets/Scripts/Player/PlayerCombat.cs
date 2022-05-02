@@ -2,28 +2,10 @@ using UnityEngine.InputSystem.Interactions;
 
 public sealed class PlayerCombat : Combat{
 
-	#region Player Input
-
 	PlayerInput input;
 
-	private void Awake()
-	{
-		input = new PlayerInput();
-	}
-
-	private void OnEnable()
-	{
-		input.Enable();
-	}
-
-	private void OnDisable()
-	{
-		input.Disable();
-	}
-
-	#endregion
-
 	internal override void m_Start(){
+		input = FindObjectOfType<InputManager>().input;
 		ani.SetBool("Standless", !standOn);
 		Inputs();
 	}

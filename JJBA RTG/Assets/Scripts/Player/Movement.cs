@@ -10,35 +10,17 @@ public sealed class Movement : MonoBehaviour
 	public short maxJumps = 2;
 
 	[HideInInspector] public Animator ani;
-	[HideInInspector] Vector3 MvIn;
-	
+	Vector3 MvIn;
 	Rigidbody rb;
 	Player stats;
-	
-	#region Input
 	PlayerInput input;
-	
-	void Awake()
-	{
-		input = new PlayerInput();		
-	}
-	
-	void OnEnable()
-	{
-		input.Enable();
-	}
-	
-	void OnDisable()
-	{
-		input.Disable();
-	}
-	#endregion
 
 	private void Start()
 	{
 		ani = GetComponent<Animator>();
 		stats = GetComponent<Player>();
 		rb = GetComponentInChildren<Rigidbody>();
+		input = FindObjectOfType<InputManager>().input;
 		
 		inputs();
 	}
@@ -68,11 +50,8 @@ public sealed class Movement : MonoBehaviour
 	
 	private void Camera()
 	{
-		float mx = input.Camera.Horizontal.ReadValue<float>();
-		float my = input.Camera.Vertical.ReadValue<float>();
-		
-		Vector2 MsIn = new Vector2(mx, my);
-		transform.Rotate(0f, MsIn.x * sensetivity, 0f);
+		float mx = input.Camera.Horizontal.ReadValue<float>(); //Maybe remove this variable if readability isn't important
+		transform.Rotate(0f, mx * sensetivity, 0f);
 	}
 
 	public void Jump()
