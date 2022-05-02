@@ -21,8 +21,7 @@ public sealed class SexPistols : Standx
 	public void shoot(int pistolType){
 		if (ammo < 1) return;
 		
-		float finDamage = (bulletDmg *(pistols/2)) * stats.damageMultiplier;
-		bullet.GetComponent<SexBullet>().damageMultiplier = finDamage;
+		bullet.GetComponent<SexBullet>().damageMultiplier = (bulletDmg *(pistols/2)) * stats.damageMultiplier;
 		bullet.GetComponent<SexBullet>().pistolType = pistolType;
 		Instantiate(bullet, firingPoint.position, transform.rotation, firingPoint);
 		ammo--;
@@ -45,10 +44,9 @@ public sealed class SexPistols : Standx
 		// (the amount of times the animation is called is based on how many sex pisotols are present)
 		shoot(2);
 	}
-		public override void Heavy()
+	public override void Heavy()
 	{
-		heavyBox.Atk();
-		//Just slaps with pistol
+		heavyBox.Atk(); //Just slaps with pistol
 	}
 	
 	public override void Ult()

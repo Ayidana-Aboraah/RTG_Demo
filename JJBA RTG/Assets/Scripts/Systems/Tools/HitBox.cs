@@ -46,10 +46,9 @@ public sealed class Hitbox
         {
             if (other.transform == parent) continue;
 
-            if (other.GetComponent<Rigidbody>())
-                other.GetComponent<Rigidbody>().AddRelativeForce(angle, ForceMode.Impulse);
-
             other.GetComponent<Stats>().TakeDamage(multiplier + damage);
+
+            if (other.GetComponent<Rigidbody>()) other.GetComponent<Rigidbody>().AddRelativeForce(angle, ForceMode.Impulse);
             return true;
         }
 

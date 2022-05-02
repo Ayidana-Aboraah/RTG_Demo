@@ -9,7 +9,7 @@ public sealed class SoftAndWet : Melee
 	public GameObject Bubble;
 	public GameObject GoBeyond;
 	public LayerMask wall;
-	public StandAttribute attributes;
+	StandAttribute attributes;
 
 	public override void SpAtk()
 	{
