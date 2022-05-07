@@ -4,31 +4,29 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
 	public GameObject menu;
-	public bool isOpen;
 
 	internal virtual void Start()
 	{
 		FindObjectOfType<InputManager>().input.Menu.Pause.started += _ => Evaluate();
+		menu.SetActive(false);
 	}
 
 	public virtual void Open()
 	{
 		Time.timeScale = 0f;
-		isOpen = true;
+		menu.SetActive(true);
 	}
 
 	public virtual void Close()
 	{
 		Time.timeScale = 1f;
-		isOpen = false;
+		menu.SetActive(false);
 	}
 
 	public virtual void Evaluate()
 	{
-		if (isOpen) Close();
+		if (menu.activeSelf) Close();
 		else Open();
-		
-		menu.SetActive(isOpen);
 	}
 
 	public void LoadScene(int idx)
@@ -38,22 +36,12 @@ public class Menu : MonoBehaviour
 	}
 
 	public void LoadLockedScene(int scene){
-		if ((PrototypeProgression.completion & (1 << scene)) > 0) //Check bit position using the scene to select the position
-            SceneManager.LoadScene(scene);
+		if (PrototypeProgression.CheckBit(scene))
+			SceneManager.LoadScene(scene);
 	}
 	
 	public void QuitGame()
 	{
 		Application.Quit();
 	}
-}
-
-[System.Serializable]
-public static class PrototypeProgression
-{
-    public static byte completion;
-
-    public static void Completed(byte boss){
-        completion |= boss;
-    }
 }

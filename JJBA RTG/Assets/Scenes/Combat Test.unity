@@ -2259,7 +2259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 984323638}
-  isOpen: 0
 --- !u!114 &881682919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2356,7 +2355,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 253877763}
-  isOpen: 0
   dummy: {fileID: 1975783864}
   mode_text: {fileID: 1332013918}
 --- !u!1 &916380433
@@ -4062,9 +4060,6 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     boxColor: {r: 1, g: 0, b: 0, a: 1}
-  gunDamage: 5
-  ammo: 4
-  fireRange: 0
 --- !u!114 &1551195228
 MonoBehaviour:
   m_ObjectHideFlags: 0

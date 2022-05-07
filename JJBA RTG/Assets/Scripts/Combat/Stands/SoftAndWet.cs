@@ -3,12 +3,9 @@ using UnityEngine;
 public sealed class SoftAndWet : Melee
 {
 	[Header("Soft And Wet Vars")]
-	public Hitbox A1Box;
-	public Hitbox A2Box;
+	public Hitbox A1Box, A2Box;
 	public Transform A3Point;
-	public GameObject Bubble;
-	public GameObject GoBeyond;
-	public LayerMask wall;
+	public GameObject Bubble, GoBeyond;
 	StandAttribute attributes;
 
 	public override void SpAtk()
@@ -29,9 +26,7 @@ public sealed class SoftAndWet : Melee
 
 	public override void A2()
 	{
-		//make an attribute called weakended defense
-		//Call that attribute
-		A2Box.Effect(5, A2Box.range, A2Box.damage);
+		A2Box.Effect(5, A2Box.range, A2Box.damage); // Defense Debuff
 	}
 
 	public override void A3()
@@ -39,16 +34,14 @@ public sealed class SoftAndWet : Melee
 		Instantiate(Bubble, A3Point.position, atkBox.parent.rotation, A3Point);
 	}
 
-	public override void Ult()
-	{
-	}
+	public override void Ult(){}
 
 	public override void ApplyAttributes()
 	{
-		if (Physics.CheckSphere(transform.parent.position, 2.5f, wall))
+		if (Physics.CheckSphere(transform.parent.position, 2.5f, 6)) // 6 = Wall
 			transform.parent.GetComponent<Rigidbody>().useGravity = false;
-		else
-			transform.parent.GetComponent<Rigidbody>().useGravity = false;
+		else if (transform.parent.GetComponent<Rigidbody>().useGravity)
+			transform.parent.GetComponent<Rigidbody>().useGravity = true;
 	}
 
 	public override void initialize()

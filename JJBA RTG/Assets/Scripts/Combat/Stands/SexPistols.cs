@@ -5,15 +5,11 @@ public sealed class SexPistols : Standx
 	public Hitbox heavyBox;
 	[Header("Gun")]
 	public float bulletDmg, gunRange;
-	public int pistols;
-	public int ammo;
+	public int pistols, ammo;
 	public GameObject bullet;
 	public Transform aimbotTarget, firingPoint;
-	public LayerMask opp;
-	
 	private void Start()
 	{
-		stats = GetComponentInParent<Player>();
 		pistols = 6;
 		ammo = 6;
 	}
@@ -29,20 +25,16 @@ public sealed class SexPistols : Standx
 
 	public override void Atk()
 	{
-		shoot(0);
+		shoot(0); //Normal shot
 	}
 	
 	public override void SpAtk()
 	{
-		//sets shield health to 0 or breaks the shield
-		shoot(1);
+		shoot(1); //sets shield health to 0 or breaks the shield
 	}
 	
 	public override void Strong(){
-		//Instantiate a bullet
-		//that will play an animation that ricochets and does damage
-		// (the amount of times the animation is called is based on how many sex pisotols are present)
-		shoot(2);
+		shoot(2); // Makes a bullet that will perform the barrage animation and do damage based on the current number of sex pistols
 	}
 	public override void Heavy()
 	{
@@ -56,10 +48,8 @@ public sealed class SexPistols : Standx
 	}
 
 	public override void A1(){
-		//sets the target a target variable 
-		RaycastHit hit;
-		
-		if(Physics.Raycast(firingPoint.position, Vector3.forward, out hit, gunRange, opp))
+		RaycastHit hit; //sets the target a target variable 
+		if(Physics.Raycast(firingPoint.position, Vector3.forward, out hit, gunRange, 7)) // 7 = player
 			aimbotTarget = hit.transform;
 	}
 	

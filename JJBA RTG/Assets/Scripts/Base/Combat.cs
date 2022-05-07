@@ -6,17 +6,12 @@ public class Combat : MonoBehaviour
     public StandBody stand;
 	public bool standOn;
 
-	[Header("Posing")]
-	public int recovery;
+	[Header("Posing")] public int recovery;
 
 	[Header("Cooldowns")]
 
-	#region Timers 
-	public Timer spAtkTimer;
-	public Timer ultTimer;
+	public Timer spAtkTimer,ultTimer;
 	public Timer[] ATimers = new Timer[9]; // if !utilized just remove
-
-	#endregion
 
 	[Header("Misc")] public LayerMask enemy;
 

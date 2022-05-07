@@ -5,10 +5,6 @@ public sealed class Standless : MonoBehaviour
 	[Header("Standless")]
 	public Hitbox atkBox, barrageBox, heavyBox;
 
-	[Header("Gun")]
-	public int gunDamage, ammo = 4;
-	public float fireRange;
-	
 	#region Standless Atks
 	public void AtkSL()
 	{
@@ -17,14 +13,7 @@ public sealed class Standless : MonoBehaviour
 
 	public void SpAtkSL()
 	{
-		//May pass camera for a more precise shot
-		Ray shot = new Ray(transform.position, Vector3.forward * fireRange);
-		RaycastHit hit;
-
-		if (!Physics.Raycast(shot, out hit, fireRange, atkBox.opponent) || ammo < 1) return;
-
-		hit.collider.GetComponent<Stats>().TakeDamage(gunDamage);
-		ammo--;
+		GetComponent<Player>().shieldHp += 5;
 	}
 
 	public void StrongSL()
@@ -46,8 +35,7 @@ public sealed class Standless : MonoBehaviour
 				heavyBox.Effect(3, 3f); //Use tripped attribute
 				break;
 			case 2:
-				ammo = 4;
-				//Gun cooldown
+				atkBox.Atk(2f); //Extra hit box
 				break;
 			default:
 				heavyBox.Effect(2, 1f); //Stun hitbox at the end

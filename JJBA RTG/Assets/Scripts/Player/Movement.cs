@@ -4,7 +4,6 @@ public sealed class Movement : MonoBehaviour
 {
 	public float sensetivity;
 	public Timer dashCooldown;
-	public LayerMask ground;
 	public float speed, jumpForce, dashForce;
 	public short jumps = 2;
 	public short maxJumps = 2;
@@ -60,7 +59,7 @@ public sealed class Movement : MonoBehaviour
 			rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 			jumps -= 1;
 		}
-		else if (Physics.CheckSphere(transform.position + Vector3.down, .15f, ground))
+		else if (Physics.CheckSphere(transform.position + Vector3.down, .15f, 3)) // 3 = ground
 			jumps = maxJumps;
 	}
 

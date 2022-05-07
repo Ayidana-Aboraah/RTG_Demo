@@ -3,8 +3,7 @@ using UnityEngine;
 public abstract class Standx : MonoBehaviour
 {
 	[Header("Cooldown")]
-	public float spAtkCooldown;
-	public float ultCooldown;
+	public float spAtkCooldown, ultCooldown;
 	public float[] ACooldowns = new float[3];
 
 	internal Transform parent;
