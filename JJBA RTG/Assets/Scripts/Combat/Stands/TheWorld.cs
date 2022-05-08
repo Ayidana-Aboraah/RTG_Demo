@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class TheWorld : Melee
 {
-	public Hitbox spAtkBox;
-	public Hitbox A1Box, A4Box;
+	public Hitbox spAtkBox, A1Box, A4Box;
 	
 	[Header("The World")]
 	public GameObject knives;
 	public Transform A3Point;
-	public float bleedLength, skipDistance;
-	public float A4Cooldown, A5Cooldown;
+	public float bleedLength, skipDistance, A4Cooldown, A5Cooldown;
 	
 	internal Rigidbody rb;
 	

@@ -51,8 +51,14 @@ public abstract class Standx : MonoBehaviour
 	
 	public virtual void initialize()
 	{
+		// NOTE: Set Player Animator Controller to Preset Stand Ani-Controller for simplicity when working with animations
 		stats = GetComponentInParent<Stats>();
 		parent = transform.parent;
+	}
+
+	public virtual void despawn(){
+		// NOTE: Reset Player Animator back to normal
+		Destroy(gameObject);
 	}
 
 	public abstract void DrawBoxes();

@@ -6,6 +6,12 @@ public sealed class TheCure : Melee
     {
         base.initialize();
         //Set the block type to the absorbant one
+        stats.blockType = 1;
+    }
+
+    public override void despawn()
+    {
         stats.blockType = 0;
+        base.despawn();
     }
 }

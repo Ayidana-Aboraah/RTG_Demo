@@ -43,7 +43,6 @@ public class EnemyAI : MonoBehaviour
 		// UpdateAnimations();
 		InputCycles();
 		Movement();
-		if (stand != null) stand.stand.ApplyAttributes();
 	}
 
 	#region Basics

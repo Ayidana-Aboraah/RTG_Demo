@@ -8,23 +8,17 @@ public sealed class StandBody : MonoBehaviour
 	public Standx stand;
 	//public SkillTree tree;
 
-	public void Initialize()
-	{
-		body = gameObject;
-		ani = GetComponent<Animator>();
-		stand = GetComponent<Standx>();
-		// tree = GetComponent<SkillTree>();
-	}
-
 	public void Spawn(Transform spawnPoint){
 		Instantiate(body, spawnPoint.position, spawnPoint.rotation, spawnPoint);
 	}
 
-	public void Despawn(){
-		Destroy(body);
+	public void Update(){
+		stand.ApplyAttributes();
 	}
-	
-	void OnDrawGizmosSelected()
+
+    public void Despawn() => stand.despawn();
+
+    void OnDrawGizmosSelected()
 	{
 		stand.DrawBoxes();
 	}

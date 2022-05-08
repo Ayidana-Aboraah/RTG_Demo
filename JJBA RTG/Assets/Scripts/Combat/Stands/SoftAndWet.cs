@@ -10,7 +10,7 @@ public sealed class SoftAndWet : Melee
 
 	public override void SpAtk()
 	{
-		Instantiate(GoBeyond, A3Point.position, transform.parent.rotation, A3Point);
+		Instantiate(GoBeyond, A3Point.position, parent.rotation, A3Point);
 	}
 
 	public override void A1()
@@ -38,10 +38,10 @@ public sealed class SoftAndWet : Melee
 
 	public override void ApplyAttributes()
 	{
-		if (Physics.CheckSphere(transform.parent.position, 2.5f, 6)) // 6 = Wall
-			transform.parent.GetComponent<Rigidbody>().useGravity = false;
-		else if (transform.parent.GetComponent<Rigidbody>().useGravity)
-			transform.parent.GetComponent<Rigidbody>().useGravity = true;
+		if (Physics.CheckSphere(parent.position, 2.5f, 6)) // 6 = Wall
+			parent.GetComponent<Rigidbody>().useGravity = false;
+		else if (parent.GetComponent<Rigidbody>().useGravity)
+			parent.GetComponent<Rigidbody>().useGravity = true;
 	}
 
 	public override void initialize()

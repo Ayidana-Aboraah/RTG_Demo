@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -37,14 +38,11 @@ public class SexBullet : Projectile
         }
     }
 
-    public void Target(Transform newTarget)
+    public void Targeting(Transform newTarget, Action b)
     {
         target = newTarget;
         targeting = true;
-    }
-
-    public void DeTarget()
-    {
+        b();
         target = null;
         targeting = false;
     }

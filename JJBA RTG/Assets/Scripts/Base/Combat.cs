@@ -29,7 +29,7 @@ public class Combat : MonoBehaviour
 		else {
 			standOn = true;
 			
-			spAtkTimer.maxTime = 0;
+			spAtkTimer.maxTime = 0; //Set to default values
 			ultTimer.maxTime = 0;
 
 			ATimers[0].maxTime = 0;
@@ -42,7 +42,6 @@ public class Combat : MonoBehaviour
 	{
 		UpdateTimers();
 		m_Update();
-		if (standOn) stand.stand.ApplyAttributes();
 	}
 
 	#region Basics

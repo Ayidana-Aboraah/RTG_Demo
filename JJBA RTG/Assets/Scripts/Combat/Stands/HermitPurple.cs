@@ -1,15 +1,10 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public sealed class HermitPurple : Standx
+public sealed class HermitPurple : Melee
 {
     [Header("Hitboxes")]
-    public Hitbox strongBox;
-    public Hitbox heavyBox;
-    public Hitbox atkSlBox;
-
-    public Hitbox A2Box;
-    public Hitbox A3Box;
+    public Hitbox A2Box,A3Box;
 
     [Header("Special Specs")]
     public Timer visionTimer;
@@ -34,17 +29,18 @@ public sealed class HermitPurple : Standx
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, grappleRange))
             {
-                transform.parent.gameObject.AddComponent<SpringJoint>();
+                parent.gameObject.AddComponent<SpringJoint>(); // REMOVE
                 joint = GetComponentInParent<SpringJoint>();
 
                 joint.autoConfigureConnectedAnchor = false;
-                joint.connectedAnchor = transform.position;
+                joint.connectedAnchor = hit.point;
 
-                float distanceFromPoint = Vector3.Distance(transform.parent.position, target.position);
+                float distanceFromPoint = Vector3.Distance(parent.position, target.position);
                 joint.maxDistance = distanceFromPoint * 0.8f;
                 joint.minDistance = distanceFromPoint * 0.25f;
 
                 //Adjust these values to fit your game.
+                //May Just Remove
                 joint.spring = 4.5f;
                 joint.damper = 7f;
                 joint.massScale = 4.5f;
@@ -54,7 +50,7 @@ public sealed class HermitPurple : Standx
         }
         else
         {
-            Destroy(joint);
+            Destroy(joint); // REMOVE
             grappling = false;
         }
     }
@@ -67,13 +63,8 @@ public sealed class HermitPurple : Standx
 
     public override void Strong()
     {
-        strongBox.Effect(3, 3f);
-        strongBox.Atk(stats.damageMultiplier);
-    }
-
-    public override void Heavy()
-    {
-        heavyBox.Atk(stats.damageMultiplier);
+        barrageBox.Effect(3, 3f);
+        base.Strong();
     }
 
     public override void A1()
@@ -83,7 +74,7 @@ public sealed class HermitPurple : Standx
 
     public void A1x2()
     {
-        transform.parent.GetComponent<Animator>().SetBool("Traveling", true);
+        parent.GetComponent<Animator>().SetBool("Traveling", true);
         rb.AddForce((rb.position - target.position) * hermitSwing * Time.deltaTime);
     }
 
@@ -103,20 +94,11 @@ public sealed class HermitPurple : Standx
         attributes.StartBuff(3,  overdriveDuration, overdriveAmount);
     }
 
-    public void AtkSL()
-    {
-        atkSlBox.Atk(stats.damageMultiplier);
-    }
-
-    public override void Ult()
-    {
-    }
+    public override void Ult(){}
 
     public override void DrawBoxes()
     {
-        atkSlBox.DrawHitBox();
-        strongBox.DrawHitBox();
-        heavyBox.DrawHitBox();
+        base.DrawBoxes();
         A2Box.DrawHitBox();
         A3Box.DrawHitBox();
     }
@@ -125,7 +107,7 @@ public sealed class HermitPurple : Standx
     {
         base.initialize();
         attributes = GetComponentInParent<StandAttribute>();
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInParent<Rigidbody>();
     }
 
     private void Update()

@@ -4,9 +4,9 @@ public sealed class SexPistols : Standx
 {
 	public Hitbox heavyBox;
 	[Header("Gun")]
-	public float bulletDmg, gunRange;
+	public float bulletDmg, targetRange;
 	public int pistols, ammo;
-	public GameObject bullet;
+	public SexBullet bullet;
 	public Transform aimbotTarget, firingPoint;
 	private void Start()
 	{
@@ -17,9 +17,9 @@ public sealed class SexPistols : Standx
 	public void shoot(int pistolType){
 		if (ammo < 1) return;
 		
-		bullet.GetComponent<SexBullet>().damageMultiplier = (bulletDmg *(pistols/2)) * stats.damageMultiplier;
-		bullet.GetComponent<SexBullet>().pistolType = pistolType;
-		Instantiate(bullet, firingPoint.position, transform.rotation, firingPoint);
+		bullet.damageMultiplier = (bulletDmg *(pistols/2)) * stats.damageMultiplier;
+		bullet.pistolType = pistolType;
+		Instantiate(bullet.gameObject, firingPoint.position, transform.rotation, firingPoint);
 		ammo--;
 	}
 
@@ -49,17 +49,14 @@ public sealed class SexPistols : Standx
 
 	public override void A1(){
 		RaycastHit hit; //sets the target a target variable 
-		if(Physics.Raycast(firingPoint.position, Vector3.forward, out hit, gunRange, 7)) // 7 = player
+		if(Physics.Raycast(firingPoint.position, Vector3.forward, out hit, targetRange, 7)) // 7 = player
 			aimbotTarget = hit.transform;
 	}
 	
 	public override void A2()
 	{
 		if(aimbotTarget == null) return;
-		
-		bullet.GetComponent<SexBullet>().Target(aimbotTarget);
-		shoot(0);
-		bullet.GetComponent<SexBullet>().DeTarget();
+		bullet.Targeting(aimbotTarget, () => shoot(0));
 	}
 	
 	public override void A3()
@@ -69,6 +66,6 @@ public sealed class SexPistols : Standx
 	
 	public override void DrawBoxes()
 	{
-		Gizmos.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * gunRange);
+		Gizmos.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * targetRange);
 	}
 }
