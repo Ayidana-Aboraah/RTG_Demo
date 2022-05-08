@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -10,8 +11,11 @@ public sealed class StandSlot
 	
 	public void Initialize()
 	{
+		if (standbody == null) return;
+
+		full = true;
 		button.interactable = true;
-		button.GetComponentInChildren<TMP_Text>().text = standbody.stand.name;
+		button.GetComponentInChildren<TMP_Text>().text = standbody.name;
 	}
 	
 	public void addStand(StandBody newStand)
@@ -27,6 +31,6 @@ public sealed class StandSlot
 		standbody = null;
 		full = false;
 		button.interactable = false;
-		button.GetComponentInChildren<TMP_Text>().text = "empty";
+		button.GetComponentInChildren<TMP_Text>().text = "[empty]";
 	}
 }

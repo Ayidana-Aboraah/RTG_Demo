@@ -12,20 +12,16 @@ public sealed class PlayerCombat : Combat{
 
     internal override void m_Update(){}
 
-    public void Block(){
-        Block(!stats.blocking);
-    }
+    public void Block() => Block(!stats.blocking);
 
-    public void Pose(){
-        Pose(!ani.GetBool("Posing"));
-    }
+    public void Pose() => Pose(!ani.GetBool("Posing"));
 
 	public void Summon(){
 		if (stats.stopped) return;
 		
 		standOn = !standOn;
 		
-		stand.body.SetActive(standOn);
+		stand.gameObject.SetActive(standOn);
 
 		ani.SetBool("Standless", !standOn);
 

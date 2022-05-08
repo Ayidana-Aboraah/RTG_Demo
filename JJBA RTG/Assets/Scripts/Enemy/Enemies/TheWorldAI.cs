@@ -13,7 +13,7 @@ public class TheWorldAI : EnemyAI
 	internal override void Start()
 	{
 		base.Start();
-		m_TheWorld = stand.body.GetComponent<TheWorld>();
+		m_TheWorld = (TheWorld) stand.stand;
 	}
 
 	public void SpawnMinion()
@@ -55,10 +55,10 @@ public class TheWorldAI : EnemyAI
 	#region Phase 3
 		if (stats.hp > 100) return;
 		
-
+		
 		if (distance <= poseDistance && !posing)
-			if (stats.shieldHp >= 0 && !stats.blocking) Block(true);
-			else if (stats.shieldHp < 0 && !posing) Pose(true);
+			if (stats.shieldHp > -1 && !stats.blocking) Block(true);
+			else if (stats.shieldHp < 0) Pose(true);
 
 		if (distance > poseDistance)
 		{

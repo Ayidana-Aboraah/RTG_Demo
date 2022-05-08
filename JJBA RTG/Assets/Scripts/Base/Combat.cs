@@ -13,8 +13,6 @@ public class Combat : MonoBehaviour
 	public Timer spAtkTimer,ultTimer;
 	public Timer[] ATimers = new Timer[9]; // if !utilized just remove
 
-	[Header("Misc")] public LayerMask enemy;
-
 	internal Animator ani;
 	internal Stats stats;
 

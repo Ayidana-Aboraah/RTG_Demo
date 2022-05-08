@@ -15,17 +15,12 @@ public sealed class Player : Stats
 
 		skillPoints++;
 		level++;
-		//add abitrary increase to Xp
-		maxXp += 10;
-
+		maxXp += 10; //Increase Number is arbitrary
 		float newExperience = xp - newXp;
 		if (newExperience < 0) xp -= newExperience;
 	}
 
-	public override void Die()
-	{
-		FindObjectOfType<DeathMenu>().Evaluate();
-	}
+	public override void Die() => FindObjectOfType<DeathMenu>().Evaluate();
 
 	public void Respawn()
 	{

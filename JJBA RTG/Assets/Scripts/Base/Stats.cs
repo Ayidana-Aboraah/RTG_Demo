@@ -74,8 +74,7 @@ public class Stats : MonoBehaviour
         //intialize Shield break state
     }
 
-    public virtual void Die() { Destroy(gameObject); }
-
+    public virtual void Die() => Destroy(gameObject);
     private void HealthCheck()
     {
         if (hp > maxHp) hp = maxHp;

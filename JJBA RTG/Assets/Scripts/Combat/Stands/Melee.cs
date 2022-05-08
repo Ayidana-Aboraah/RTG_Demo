@@ -4,19 +4,11 @@ public class Melee : Standx
 {
 	[Header("Hitboxes")]public Hitbox atkBox, barrageBox, heavyBox;
 	
-	public override void Atk()
-	{
-		atkBox.Atk(stats.damageMultiplier);
-	}
+	public override void Atk() => atkBox.Atk(stats.damageMultiplier);
 
-	public override void Strong(){
-		barrageBox.Atk(stats.damageMultiplier);
-	}
+	public override void Strong() => barrageBox.Atk(stats.damageMultiplier);
 	
-	public override void Heavy()
-	{
-		heavyBox.Atk(stats.damageMultiplier);
-	}
+	public override void Heavy() => heavyBox.Atk(stats.damageMultiplier);
 	
 	public override void SpAtk(){}
 	public override void Ult(){}

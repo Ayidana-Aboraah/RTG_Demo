@@ -64,13 +64,7 @@ public abstract class Standx : MonoBehaviour
 	public abstract void DrawBoxes();
 	#endregion
 	
-	void Awake()
-	{
-		initialize();	
-	}
+	void Awake() => initialize();	
 	
-	void OnDrawGizmosSelected()
-	{
-		DrawBoxes();
-	}
+	void OnDrawGizmosSelected() => DrawBoxes();
 }

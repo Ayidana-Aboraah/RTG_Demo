@@ -6,20 +6,11 @@ public sealed class Standless : MonoBehaviour
 	public Hitbox atkBox, barrageBox, heavyBox;
 
 	#region Standless Atks
-	public void AtkSL()
-	{
-		atkBox.Atk();
-	}
+	public void AtkSL() => atkBox.Atk();
 
-	public void SpAtkSL()
-	{
-		GetComponent<Player>().shieldHp += 5;
-	}
+	public void SpAtkSL() => GetComponent<Player>().shieldHp += 5;
 
-	public void StrongSL()
-	{
-		barrageBox.Atk();
-	}
+	public void StrongSL() => barrageBox.Atk();
 
 	public void HeavySL()
 	{

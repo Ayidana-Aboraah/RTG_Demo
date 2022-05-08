@@ -23,23 +23,10 @@ public sealed class SexPistols : Standx
 		ammo--;
 	}
 
-	public override void Atk()
-	{
-		shoot(0); //Normal shot
-	}
-	
-	public override void SpAtk()
-	{
-		shoot(1); //sets shield health to 0 or breaks the shield
-	}
-	
-	public override void Strong(){
-		shoot(2); // Makes a bullet that will perform the barrage animation and do damage based on the current number of sex pistols
-	}
-	public override void Heavy()
-	{
-		heavyBox.Atk(); //Just slaps with pistol
-	}
+	public override void Atk() => shoot(0); //Normal shot
+	public override void SpAtk() =>	shoot(1); //sets shield health to 0 or breaks the shield
+	public override void Strong() => shoot(2); // Makes a bullet that will perform the barrage animation and do damage based on the current number of sex pistols
+	public override void Heavy() =>	heavyBox.Atk(); //Just slaps with pistol
 	
 	public override void Ult()
 	{
@@ -59,13 +46,7 @@ public sealed class SexPistols : Standx
 		bullet.Targeting(aimbotTarget, () => shoot(0));
 	}
 	
-	public override void A3()
-	{
-		ammo = 6;
-	}
+	public override void A3() => ammo = 6;
 	
-	public override void DrawBoxes()
-	{
-		Gizmos.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * targetRange);
-	}
+	public override void DrawBoxes() => Gizmos.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * targetRange);
 }
