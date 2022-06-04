@@ -2,7 +2,7 @@ using UnityEngine;
 
 public sealed class StandDictionary : MonoBehaviour
 {
-	public StandBody[] standDictions;
+	public StandBody[] entries;
 	
     public static StandDictionary instance;
 	
@@ -16,7 +16,16 @@ public sealed class StandDictionary : MonoBehaviour
 
 	public StandBody FindBody(string targetStand)
 	{
-		foreach (StandBody body in standDictions) if(body.key == targetStand) return body;
+		// foreach (StandBody body in entries) if(body.key == targetStand) return body;
+		// return null;
+
+		// int z = body.length;
+		for (int i = 0, z = body.length -1; i < body.length; i++, z--){
+			if (entries[i].key == targetStand)
+				return entries[i];
+			if (entries[z].key == targetStand)
+				return entries[z];
+		}
 		return null;
 	}
 }
