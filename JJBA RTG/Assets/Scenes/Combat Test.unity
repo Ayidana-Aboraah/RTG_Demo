@@ -645,7 +645,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2305825, y: 1}
+    m_SensorSize: {x: 2.4805825, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1690,7 +1690,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2305825, y: 1}
+    m_SensorSize: {x: 2.4805825, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1706,7 +1706,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691874571}
-  m_LocalRotation: {x: 0.10354242, y: -0, z: -0, w: 0.99462503}
+  m_LocalRotation: {x: 0.10354242, y: 1e-45, z: -0, w: 0.99462503}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2356,7 +2356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 253877763}
   dummy: {fileID: 1975783864}
-  mode_text: {fileID: 1332013918}
+  mode_text: {fileID: 0}
 --- !u!1 &916380433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2760,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2305825, y: 1}
+    m_SensorSize: {x: 2.4805825, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3216,8 +3216,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1551195235}
-  m_Follow: {fileID: 1551195235}
+  m_LookAt: {fileID: 56409363}
+  m_Follow: {fileID: 56409363}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 40
@@ -3228,7 +3228,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2305825, y: 1}
+    m_SensorSize: {x: 2.4805825, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4001,7 +4001,6 @@ GameObject:
   - component: {fileID: 1551195236}
   - component: {fileID: 1551195226}
   - component: {fileID: 1551195225}
-  - component: {fileID: 1551195237}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -4193,7 +4192,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 672763a8550f9f74e950b8b75d30b973, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -4330,30 +4329,6 @@ MonoBehaviour:
     complete: 0
     maxTime: 0
     m_CurrentTime: 0
---- !u!145 &1551195237
-SpringJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551195224}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.5, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  serializedVersion: 2
-  m_Spring: 0
-  m_Damper: 0.2
-  m_MinDistance: 0
-  m_MaxDistance: 0
-  m_Tolerance: 0.025
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &1775345377
 GameObject:
   m_ObjectHideFlags: 0
