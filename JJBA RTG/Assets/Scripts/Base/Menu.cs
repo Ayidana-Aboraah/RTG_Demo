@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 
 	internal virtual void Start()
 	{
-		FindObjectOfType<InputManager>().input.Menu.Pause.started += _ => Evaluate();
+		InputManager.input.Menu.Pause.started += _ => Evaluate();
 		menu.SetActive(false);
 	}
 

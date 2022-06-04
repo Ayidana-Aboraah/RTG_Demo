@@ -5,21 +5,21 @@ public sealed class Movement : MonoBehaviour
 	public float sensetivity;
 	public Timer dashCooldown;
 	public float speed, jumpForce, dashForce;
-	public short jumps = 2;
-	public short maxJumps = 2;
+	public short jumps = 2, maxJumps = 2;
 
 	[HideInInspector] public Animator ani;
-	Vector3 MvIn;
+	PlayerInput input;
 	Rigidbody rb;
 	Player stats;
-	PlayerInput input;
+	Vector3 MvIn;
+
 
 	private void Start()
 	{
+		rb = GetComponentInChildren<Rigidbody>();
 		ani = GetComponent<Animator>();
 		stats = GetComponent<Player>();
-		rb = GetComponentInChildren<Rigidbody>();
-		input = FindObjectOfType<InputManager>().input;
+		input = InputManager.input;
 		
 		inputs();
 	}

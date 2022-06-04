@@ -2,27 +2,11 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public PlayerInput input;
+    public static PlayerInput input;
+
+	private void Awake() => input = new PlayerInput();
 	
-    public static InputManager instance;
-	
-    private void Awake()
-	{
-		input = new PlayerInput();
+	private void OnEnable() => input.Enable();
 
-		DontDestroyOnLoad(gameObject);
-
-		if(instance == null) instance = this;
-		else Destroy(gameObject);
-	}
-
-	private void OnEnable()
-	{
-		input.Enable();
-	}
-
-	private void OnDisable()
-	{
-		input.Disable();
-	}
+	private void OnDisable() => input.Disable();
 }

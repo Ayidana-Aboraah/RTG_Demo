@@ -8,7 +8,7 @@ public class GoBeyond : Projectile
 	
 	internal override void Start(){
 		base.Start();
-		FindObjectOfType<InputManager>().input.A.A4.started += _ => Target();
+		InputManager.input.A.A4.started += _ => Target();
 	}
 	
 	public override void Move()

@@ -6,13 +6,13 @@ public sealed class AudioManager : MonoBehaviour
 	public string bgMusic;
 	public Sound[] sounds;
 
-	public static AudioManager instance;
+	public static AudioManager manager;
 
 	private void Awake()
 	{
-		DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(gameObject); //This also allows other manager scripts to not have to be deleted
 
-		if(instance == null) instance = this;
+		if(manager == null) manager = this;
 		else
 		{
 			Destroy(gameObject);

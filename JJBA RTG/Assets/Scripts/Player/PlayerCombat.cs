@@ -5,8 +5,8 @@ public sealed class PlayerCombat : Combat{
 	PlayerInput input;
 
 	internal override void m_Start(){
-		input = FindObjectOfType<InputManager>().input;
 		ani.SetBool("Standless", !standOn);
+		input = InputManager.input;
 		Inputs();
 	}
 

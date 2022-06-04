@@ -24,25 +24,29 @@ public class Stats : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        //TODO: Use block type logic later
-
         var newDamage = damage - (durability * defenseMultiplier);
 
-        if (damage < 0) newDamage = damage;
+        if (damage < 0) newDamage = damage; //Turns into heal
 
         if (blocking)
             switch (blockType)
             {
-                case 2: // Love Train
-                        // Create hitbox to attack all nearby
+                case 0:
+                    if (shieldHp - newDamage <= 0) // if true -> shield is broken; else -> shield took the blow
+                        ShieldBreak();
+                    else
+                        shieldHp -= newDamage;
                     break;
 
                 case 1: // Store damage
                     storedDmg += newDamage;
                     break;
 
-                default:
-                    if (!ShieldCheck(newDamage) && !shieldRecovery.isRunning) return;
+                case 2: // Love Train
+                    Hitbox newHit = new Hitbox(); // Create hitbox to attack all nearby
+                    newHit.range = 5f;
+                    newHit.damage = damage;
+                    newHit.Atk();
                     break;
             }
         else
@@ -51,20 +55,6 @@ public class Stats : MonoBehaviour
         HealthCheck();
     }
 
-    // if true -> shield is broken; else -> shield took the blow
-    protected virtual bool ShieldCheck(float damage)
-    {
-        float resultDamage = shieldHp - damage;
-
-        if (resultDamage <= 0)
-        {
-            ShieldBreak();
-            return true;
-        }
-
-        shieldHp -= damage;
-        return false;
-    }
 
     public virtual void ShieldBreak()
     {
@@ -78,6 +68,6 @@ public class Stats : MonoBehaviour
     private void HealthCheck()
     {
         if (hp > maxHp) hp = maxHp;
-        if (hp <= 0) Die();
+        if (hp <= 0f) Die();
     }
 }

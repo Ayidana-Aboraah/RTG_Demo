@@ -3,17 +3,11 @@ using UnityEngine;
 public sealed class StandDictionary : MonoBehaviour
 {
 	public StandBody[] entries;
-	
-    public static StandDictionary instance;
-	
-	private void Awake()
-	{
-		DontDestroyOnLoad(gameObject);
 
-		if(instance == null) instance = this;
-		else Destroy(gameObject);
-	}
+	public static StandDictionary Dictionary;
 
+	private void Awake() => Dictionary = this;
+	
 	public StandBody FindBody(string targetStand)
 	{
 		// foreach (StandBody body in entries) if(body.key == targetStand) return body;

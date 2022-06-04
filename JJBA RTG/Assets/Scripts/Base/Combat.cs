@@ -19,7 +19,7 @@ public class Combat : MonoBehaviour
 	private void Start()
 	{
 		stats = GetComponent<Stats>();
-		ani = GetComponent<Animator>();
+		ani = GetComponentInChildren<Animator>(); // NOTE: A bug might appear where it call
 		
 		m_Start();
 

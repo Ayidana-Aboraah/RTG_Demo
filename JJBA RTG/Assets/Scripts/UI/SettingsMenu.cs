@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public TMP_Dropdown resolutionDropdown;
+    Resolution[] resolutions;
     public AudioMixer mixer;
 
-    public TMP_Dropdown resolutionDropdown;
-
-    Resolution[] resolutions;
 
     void Start()
     {
@@ -56,7 +55,5 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
-    void SwitchControls(int idx)
-    {
-    }
+    void SwitchControls(int idx){}
 }
