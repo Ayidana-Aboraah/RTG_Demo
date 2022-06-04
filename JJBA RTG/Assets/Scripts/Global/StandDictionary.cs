@@ -19,8 +19,7 @@ public sealed class StandDictionary : MonoBehaviour
 		// foreach (StandBody body in entries) if(body.key == targetStand) return body;
 		// return null;
 
-		// int z = body.length;
-		for (int i = 0, z = body.length -1; i < body.length; i++, z--){
+		for (int i = 0, z = entries.Length -1; i < entries.Length; i++, z--){
 			if (entries[i].key == targetStand)
 				return entries[i];
 			if (entries[z].key == targetStand)
