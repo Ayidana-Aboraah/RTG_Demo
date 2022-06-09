@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(InputManager), typeof(StandDictionary))]
 public sealed class AudioManager : MonoBehaviour
 {
 	public string bgMusic;

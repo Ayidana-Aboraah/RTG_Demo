@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
@@ -58,6 +59,7 @@ public class Combat : MonoBehaviour
 	{
 		if (stats.stopped) return;
 
+		stats.blocking = blocking;
 		ani.SetBool("Blocking", blocking);
 		if (standOn) stand.ani.SetBool("Blocking", blocking);
 	}
