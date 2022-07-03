@@ -15,12 +15,15 @@ public class Menu : MonoBehaviour
 	{
 		Time.timeScale = 0f;
 		menu.SetActive(true);
+		Cursor.lockState = CursorLockMode.None;
 	}
 
 	public virtual void Close()
 	{
 		Time.timeScale = 1f;
 		menu.SetActive(false);
+		Cursor.lockState = CursorLockMode.Locked;
+
 	}
 
 	public virtual void Evaluate()

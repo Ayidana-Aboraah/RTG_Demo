@@ -2,25 +2,30 @@ using UnityEngine;
 
 public sealed class Movement : MonoBehaviour
 {
-	public float sensetivity;
-	public Timer dashCooldown;
-	public float speed, jumpForce, dashForce;
+	public float sensetivity, speed, jumpForce, dashForce;
 	public short jumps = 2, maxJumps = 2;
+	public Timer dashCooldown;
+
+	[Header("Camera")] public Transform cam; 
+	float smoothVelocity;
 
 	[HideInInspector] public Animator ani;
 	PlayerInput input;
+	LayerMask ground;
 	Rigidbody rb;
 	Player stats;
 	Vector3 MvIn;
 
-
 	private void Start()
 	{
 		rb = GetComponentInChildren<Rigidbody>();
+		ground = LayerMask.GetMask("ground");
 		ani = GetComponent<Animator>();
 		stats = GetComponent<Player>();
 		input = InputManager.input;
-		
+
+		Cursor.lockState = CursorLockMode.Locked;
+
 		inputs();
 	}
 
@@ -30,12 +35,6 @@ public sealed class Movement : MonoBehaviour
 
 		if (stats.stopped) return;
 
-		Move();
-		Camera();
-	}
-
-	private void Move()
-	{
 		float x = input.Movement.Horizontal.ReadValue<float>();
 		float y = input.Movement.Vertical.ReadValue<float>();
 
@@ -43,24 +42,26 @@ public sealed class Movement : MonoBehaviour
 		// ani.SetFloat("y", y);
 		
 		MvIn = new Vector3(x, 0f, y);
-		
-		rb.MovePosition(transform.position + (transform.TransformDirection(MvIn) * speed/10));
-	}
-	
-	private void Camera()
-	{
-		float mx = input.Camera.Horizontal.ReadValue<float>(); //Maybe remove this variable if readability isn't important
-		transform.Rotate(0f, mx * sensetivity, 0f);
+
+		if (MvIn.magnitude >= .1f){
+			float targetAngle = Mathf.Atan2(x, y) * Mathf.Rad2Deg + cam.eulerAngles.y;
+			float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothVelocity, sensetivity);
+
+			transform.rotation = Quaternion.Euler(0f, angle, 0f);
+			rb.MovePosition(transform.position + ((Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward).normalized * speed/10));
+		}	
 	}
 
 	public void Jump()
 	{
+		if (Physics.CheckSphere(transform.position + Vector3.down, .25f, ground))
+			jumps = maxJumps;
+		
 		if (jumps > 0){
 			rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 			jumps -= 1;
 		}
-		else if (Physics.CheckSphere(transform.position + Vector3.down, .15f, 3)) // 3 = ground
-			jumps = maxJumps;
+
 	}
 
 	public void Dash()
