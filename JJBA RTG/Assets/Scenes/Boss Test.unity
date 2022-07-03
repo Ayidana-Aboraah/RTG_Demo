@@ -491,7 +491,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157043375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 6.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -641,7 +641,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6529126, y: 1}
+    m_SensorSize: {x: 2.468599, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1706,7 +1706,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6529126, y: 1}
+    m_SensorSize: {x: 2.468599, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3354,7 +3354,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6529126, y: 1}
+    m_SensorSize: {x: 2.468599, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3686,7 +3686,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6529126, y: 1}
+    m_SensorSize: {x: 2.468599, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4029,7 +4029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &2052493570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4436,6 +4436,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6028240397223931876, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+      propertyPath: slots.Array.data[0].button
+      value: 
+      objectReference: {fileID: 1309212935}
+    - target: {fileID: 6028240397223931876, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+      propertyPath: slots.Array.data[1].button
+      value: 
+      objectReference: {fileID: 2078307430}
+    - target: {fileID: 6028240397223931876, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+      propertyPath: slots.Array.data[2].button
+      value: 
+      objectReference: {fileID: 127645680}
     - target: {fileID: 6028240398044176032, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: m_RootOrder
       value: 8

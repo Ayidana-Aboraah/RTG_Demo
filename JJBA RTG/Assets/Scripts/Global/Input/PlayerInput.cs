@@ -524,24 +524,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ""id"": ""465e00c9-83d3-46ea-8cd0-b75e4a1c3cd8"",
             ""actions"": [
                 {
-                    ""name"": ""Horizontal"",
-                    ""type"": ""Button"",
-                    ""id"": ""aeb181c6-0062-4c76-9c51-27a970ffa20b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Vertical"",
-                    ""type"": ""Button"",
-                    ""id"": ""f5e0284e-2c8b-4b62-a6d8-5f645e4decc8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Focus"",
                     ""type"": ""Button"",
                     ""id"": ""1098a09f-2987-4994-b36a-d7a48c3d2cfa"",
@@ -562,39 +544,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Base Config"",
-                    ""id"": ""aa76e389-f670-44c6-9187-804c97216011"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Horizontal"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""3379cab0-049b-4793-b896-42a683742b38"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Horizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""740a9c6c-e9b0-4c1a-bd6b-04ea613fe5cf"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Horizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""5f30b836-0841-4452-b61a-eed3a2cd2da4"",
                     ""path"": """",
@@ -604,39 +553,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Focus"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Base Config"",
-                    ""id"": ""119aae3e-0a97-4f78-8dc3-17ffbd5ce5f0"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""dbd42a78-9f24-4b6b-b286-87d2ee3954f5"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""fcfdf3c5-6f14-4f1f-b4b3-4bb36003bb71"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -713,8 +629,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
-        m_Camera_Horizontal = m_Camera.FindAction("Horizontal", throwIfNotFound: true);
-        m_Camera_Vertical = m_Camera.FindAction("Vertical", throwIfNotFound: true);
         m_Camera_Focus = m_Camera.FindAction("Focus", throwIfNotFound: true);
         m_Camera_MousePostition = m_Camera.FindAction("MousePostition", throwIfNotFound: true);
     }
@@ -1044,16 +958,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     // Camera
     private readonly InputActionMap m_Camera;
     private ICameraActions m_CameraActionsCallbackInterface;
-    private readonly InputAction m_Camera_Horizontal;
-    private readonly InputAction m_Camera_Vertical;
     private readonly InputAction m_Camera_Focus;
     private readonly InputAction m_Camera_MousePostition;
     public struct CameraActions
     {
         private @PlayerInput m_Wrapper;
         public CameraActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Horizontal => m_Wrapper.m_Camera_Horizontal;
-        public InputAction @Vertical => m_Wrapper.m_Camera_Vertical;
         public InputAction @Focus => m_Wrapper.m_Camera_Focus;
         public InputAction @MousePostition => m_Wrapper.m_Camera_MousePostition;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
@@ -1065,12 +975,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_CameraActionsCallbackInterface != null)
             {
-                @Horizontal.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnHorizontal;
-                @Horizontal.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnHorizontal;
-                @Horizontal.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnHorizontal;
-                @Vertical.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnVertical;
-                @Vertical.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnVertical;
-                @Vertical.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnVertical;
                 @Focus.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnFocus;
                 @Focus.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnFocus;
                 @Focus.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnFocus;
@@ -1081,12 +985,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             m_Wrapper.m_CameraActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Horizontal.started += instance.OnHorizontal;
-                @Horizontal.performed += instance.OnHorizontal;
-                @Horizontal.canceled += instance.OnHorizontal;
-                @Vertical.started += instance.OnVertical;
-                @Vertical.performed += instance.OnVertical;
-                @Vertical.canceled += instance.OnVertical;
                 @Focus.started += instance.OnFocus;
                 @Focus.performed += instance.OnFocus;
                 @Focus.canceled += instance.OnFocus;
@@ -1150,8 +1048,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     }
     public interface ICameraActions
     {
-        void OnHorizontal(InputAction.CallbackContext context);
-        void OnVertical(InputAction.CallbackContext context);
         void OnFocus(InputAction.CallbackContext context);
         void OnMousePostition(InputAction.CallbackContext context);
     }

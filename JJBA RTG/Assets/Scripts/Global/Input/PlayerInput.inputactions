@@ -502,24 +502,6 @@
             "id": "465e00c9-83d3-46ea-8cd0-b75e4a1c3cd8",
             "actions": [
                 {
-                    "name": "Horizontal",
-                    "type": "Button",
-                    "id": "aeb181c6-0062-4c76-9c51-27a970ffa20b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Vertical",
-                    "type": "Button",
-                    "id": "f5e0284e-2c8b-4b62-a6d8-5f645e4decc8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Focus",
                     "type": "Button",
                     "id": "1098a09f-2987-4994-b36a-d7a48c3d2cfa",
@@ -540,39 +522,6 @@
             ],
             "bindings": [
                 {
-                    "name": "Base Config",
-                    "id": "aa76e389-f670-44c6-9187-804c97216011",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "3379cab0-049b-4793-b896-42a683742b38",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "740a9c6c-e9b0-4c1a-bd6b-04ea613fe5cf",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "5f30b836-0841-4452-b61a-eed3a2cd2da4",
                     "path": "",
@@ -582,39 +531,6 @@
                     "action": "Focus",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "Base Config",
-                    "id": "119aae3e-0a97-4f78-8dc3-17ffbd5ce5f0",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Vertical",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "dbd42a78-9f24-4b6b-b286-87d2ee3954f5",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Vertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "fcfdf3c5-6f14-4f1f-b4b3-4bb36003bb71",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Vertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

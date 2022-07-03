@@ -24,7 +24,7 @@ public sealed class StandAttribute : MonoBehaviour
 		{
 			GetComponent<Stats>().stopped = false;
 			GetComponent<Rigidbody>().useGravity = true;
-			GetComponent<Animator>().SetBool("Stun", false);
+			GetComponentInChildren<Animator>().SetBool("Stun", false);
 			
 			stunTimer.complete = false;
 		}
@@ -66,7 +66,7 @@ public sealed class StandAttribute : MonoBehaviour
 		{
 			//Tripped
 			case 3:
-				GetComponent<Animator>().SetBool("Trip", true);
+				GetComponentInChildren<Animator>().SetBool("Trip", true);
 				stunTimer.Start();
 				break;
 			//Stunning //Also no need to be stopped here since the walking animation will block it
