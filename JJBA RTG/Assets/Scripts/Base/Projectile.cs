@@ -13,7 +13,8 @@ public class Projectile : Stats
 		lifeTime.Start();
 
 		rb = GetComponent<Rigidbody>();
-		transform.SetParent(null);
+		// transform.SetParent(null); // May be needed for something
+		box.parent = transform.parent;
 	}
 	
 	internal virtual void FixedUpdate()

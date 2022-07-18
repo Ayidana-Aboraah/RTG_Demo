@@ -33,8 +33,6 @@ public class EnemyAI : MonoBehaviour
 		ani = GetComponent<Animator>();
 		agent = GetComponent<NavMeshAgent>();
 		stand = GetComponentInChildren<StandBody>();
-
-		agent.speed = stats.speed;
 	}
 
 	private void Update()
@@ -66,7 +64,6 @@ public class EnemyAI : MonoBehaviour
 	public void Atk()
 	{
 		stand.ani.SetTrigger("Atk");
-		Debug.Log("Atking");
 		atkTimer.Start();
 	}
 
@@ -74,7 +71,6 @@ public class EnemyAI : MonoBehaviour
 	{
 		stand.ani.SetTrigger("SpAtk");
 		spAtkTimer.Start();
-		Debug.Log("Sp Atking");
 	}
 
 	public void Strong()

@@ -54,6 +54,8 @@ public sealed class Movement : MonoBehaviour
 
 	public void Jump()
 	{
+		if (stats.stopped) return; // NOTE: Remove this if we have an animation that calls this function
+		
 		if (Physics.CheckSphere(transform.position + Vector3.down, .25f, ground))
 			jumps = maxJumps;
 		
@@ -66,7 +68,7 @@ public sealed class Movement : MonoBehaviour
 
 	public void Dash()
 	{
-		if (dashCooldown.isRunning) return;
+		if (dashCooldown.isRunning || stats.stopped) return; // NOTE: Remove stats.stopped if animation is for this
 	
 		dashCooldown.Start();
 		

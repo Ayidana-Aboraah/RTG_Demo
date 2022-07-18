@@ -35,13 +35,12 @@ public class TheWorldAI : EnemyAI
 
 	#region Phase 1
 		if (distance <= m_TheWorld.atkBox.range && !atkTimer.isRunning) Atk();
-		if (distance <= m_TheWorld.spAtkBox.range / 2 && !spAtkTimer.isRunning) SpAtk();
+		if (distance <= m_TheWorld.spAtkBox.range && !spAtkTimer.isRunning) SpAtk();
 		if (distance > throwMin && !ATimers[2].isRunning) A(3, 1);
 	#endregion
 
 	#region Phase 2
 		if (stats.hp > 200) return;
-
 
 		if (spawnTimer.complete && distance > throwMin / 2) SpawnMinion();
 
