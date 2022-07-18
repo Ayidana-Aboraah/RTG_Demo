@@ -6,11 +6,12 @@ public sealed class Player : Stats
 	public float xp, maxXp;
 	public int level, skillPoints;
 	// [Header("Death")] public GameObject deathMenu; //reimplement for online if nesseccary
-	public Healthbar healthbar, xp_bar, shieldbar; // TODO: implement the shieldbar
+	PlayerHUD HUD;
 
 	internal override void Start() {
 		base.Start();
-		healthbar.SetMaxHealth((int) maxHp);
+		HUD = FindObjectOfType<PlayerHUD>();
+		HUD.SetMaxHealth((int)maxHp);
 	}
 
 	public void AddXp(float newXp)
@@ -24,14 +25,11 @@ public sealed class Player : Stats
 		maxXp += 10; //Increase Number is arbitrary // We may cap this, or just not increase to begin with
 		float newExperience = xp - newXp;
 		if (newExperience < 0) xp -= newExperience;
-
-		xp_bar.slider.value = xp;
-		xp_bar.slider.maxValue = maxXp;
 	}
 
 	public override void TakeDamage(float damage){
 		base.TakeDamage(damage);
-		healthbar.SetHealth((int) hp);
+		HUD.SetHealth((int) hp);
 	}
 
 	public override void Die() => FindObjectOfType<DeathMenu>().Evaluate();
