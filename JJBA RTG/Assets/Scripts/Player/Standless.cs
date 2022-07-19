@@ -5,8 +5,6 @@ public sealed class Standless : MonoBehaviour
 	[Header("Standless")]
 	public Hitbox atkBox, barrageBox, heavyBox;
 
-	public void ResetRotation() => transform.rotation = transform.parent.rotation;
-
 	#region Standless Atks
 	public void AtkSL() => atkBox.Atk();
 

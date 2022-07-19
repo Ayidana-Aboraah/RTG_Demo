@@ -7,9 +7,11 @@ public sealed class Player : Stats
 	public int level, skillPoints;
 	// [Header("Death")] public GameObject deathMenu; //reimplement for online if nesseccary
 	PlayerHUD HUD;
+    internal Animator ani; // TODO: Put this in base during a refactor
 
 	internal override void Start() {
 		base.Start();
+        ani = GetComponentInChildren<Animator>();
 		HUD = FindObjectOfType<PlayerHUD>();
 		HUD.SetMaxHealth((int)maxHp);
 	}
@@ -29,6 +31,7 @@ public sealed class Player : Stats
 
 	public override void TakeDamage(float damage){
 		base.TakeDamage(damage);
+        ani.SetTrigger("Hurt"); // TODO: Place this in side the base TakeDamage at the appropriate place\
 		HUD.SetHealth((int) hp);
 	}
 

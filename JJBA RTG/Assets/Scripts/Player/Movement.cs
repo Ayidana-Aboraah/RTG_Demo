@@ -52,6 +52,8 @@ public sealed class Movement : MonoBehaviour
 		}	
 	}
 
+
+
 	public void Jump()
 	{
 		if (stats.stopped) return; // NOTE: Remove this if we have an animation that calls this function
