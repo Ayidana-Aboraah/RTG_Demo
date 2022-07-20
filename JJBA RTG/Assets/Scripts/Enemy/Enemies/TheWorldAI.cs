@@ -2,68 +2,64 @@ using UnityEngine;
 
 public class TheWorldAI : EnemyAI
 {
-	[Header("Boss Vars")]
-	public float poseDistance, throwMin;
+    [Header("Boss Vars")]
+    public float poseDistance, throwMin;
 
-	public GameObject minion;
-	public Transform spawnPoint;
-	public Timer spawnTimer;
-	TheWorld m_TheWorld;
+    public GameObject minion;
+    public Transform spawnPoint;
+    public Timer spawnTimer;
+    TheWorld m_TheWorld;
 
-	internal override void Start()
-	{
-		base.Start();
-		m_TheWorld = (TheWorld) stand.stand;
-	}
+    internal override void Start()
+    {
+        base.Start();
+        m_TheWorld = (TheWorld)stand.stand;
+    }
 
-	public void SpawnMinion()
-	{
-		Instantiate(minion, spawnPoint.position, spawnPoint.rotation, spawnPoint);
-		spawnTimer.Start();
-	}
+    public void SpawnMinion()
+    {
+        Instantiate(minion, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+        spawnTimer.Start();
+    }
 
-	public override void Movement()
-	{
-		if (spawnTimer.complete) agent.destination = transform.position;
-		else base.Movement();
-	}
+    public override void Movement()
+    {
+        if (spawnTimer.complete) agent.destination = transform.position;
+        else base.Movement();
+    }
 
-	public override void InputCycles()
-	{
-		base.InputCycles();
-		spawnTimer.UpdateTimer();
+    public override void InputCycles()
+    {
+        base.InputCycles();
+        spawnTimer.UpdateTimer();
 
-	#region Phase 1
-		if (distance <= m_TheWorld.atkBox.range && !atkTimer.isRunning) Atk();
-		if (distance <= m_TheWorld.spAtkBox.range && !spAtkTimer.isRunning) SpAtk();
-		if (distance > throwMin && !ATimers[2].isRunning) A(3, 1);
-	#endregion
+        #region Phase 1
+        if (distance <= m_TheWorld.atkBox.range && !atkTimer.isRunning) Atk();
+        if (distance <= m_TheWorld.spAtkBox.range && !spAtkTimer.isRunning) SpAtk();
+        if (distance > throwMin && !ATimers[2].isRunning) A(3, 1);
+        #endregion
 
-	#region Phase 2
-		if (stats.hp > 200) return;
+        #region Phase 2
+        if (stats.hp > 200) return;
 
-		if (spawnTimer.complete && distance > throwMin / 2) SpawnMinion();
+        if (distance > throwMin / 2 && !spawnTimer.isRunning) SpawnMinion();
 
-		//Start Muda kicks
-		if (distance <= m_TheWorld.A1Box.range && ATimers[0].complete) A(1, 1);
+        if (distance <= m_TheWorld.A1Box.range && !ATimers[0].isRunning) A(1, 1); //Start Muda kicks
 
-		//Start Time skipping to dodge
-		if (distance <= poseDistance + 1f && ATimers[1].complete) A(2, 1);
-	#endregion
+        if (distance <= poseDistance + 1f && !ATimers[1].isRunning) A(2, 1); //Start Time skipping to dodge
+        #endregion
 
-	#region Phase 3
-		if (stats.hp > 100) return;
-		
-		
-		if (distance <= poseDistance && !posing)
-			if (stats.shieldHp > -1 && !stats.blocking) Block(true);
-			else if (stats.shieldHp < 0) Pose(true);
+        #region Phase 3
+        if (stats.hp > 100) return;
 
-		if (distance > poseDistance)
-		{
-			if (stats.blocking) Block(false);
-			if (posing) Pose(false);
-		}
-	#endregion
-	}
+        if (distance <= poseDistance)
+        {
+            if (stats.blocking) Block(false);
+            if (posing) Pose(false);
+        }
+		else if (!posing)
+			if (!stats.blocking && stats.shieldHp > 0) Block(true);
+            else if (stats.shieldHp < 0) Pose(true);
+        #endregion
+    }
 }

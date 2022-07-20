@@ -717,7 +717,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.4650602, y: 1}
+    m_SensorSize: {x: 2.4532373, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1482,7 +1482,6 @@ GameObject:
   m_Component:
   - component: {fileID: 845558674}
   - component: {fileID: 845558675}
-  - component: {fileID: 845558676}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -1565,18 +1564,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &845558676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845558673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74e6b1ee91e50945bd130add157db47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1037548398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,7 +2024,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.4650602, y: 1}
+    m_SensorSize: {x: 2.4532373, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3601,7 +3588,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612868643}
-  m_LocalRotation: {x: 0.09167784, y: -0.00000001844339, z: 0.0000000015539573, w: 0.9957887}
+  m_LocalRotation: {x: 0.09167784, y: -0.00000001844339, z: 0.0000000015539668, w: 0.9957887}
   m_LocalPosition: {x: -1.2220405, y: 5.6800003, z: -13.918913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3817,7 +3804,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.4650602, y: 1}
+    m_SensorSize: {x: 2.4532373, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3833,7 +3820,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708471153}
-  m_LocalRotation: {x: 0.073597685, y: 0.000000004289929, z: -3.1658742e-10, w: 0.99728805}
+  m_LocalRotation: {x: 0.073597685, y: -0.0000000042899297, z: 3.165875e-10, w: 0.99728805}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4149,7 +4136,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.4650602, y: 1}
+    m_SensorSize: {x: 2.4532373, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4708,13 +4695,13 @@ MonoBehaviour:
   distance: 0
   target: {fileID: 1570244635}
   poseDistance: 2
-  throwMin: 0
+  throwMin: 3
   minion: {fileID: 0}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2052493573}
   spawnTimer:
     isRunning: 0
     complete: 0
-    maxTime: 0
+    maxTime: 5
     m_CurrentTime: 0
 --- !u!95 &2052493576
 Animator:
@@ -5070,7 +5057,7 @@ PrefabInstance:
     - target: {fileID: 6028240398044176033, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: healthbar
       value: 
-      objectReference: {fileID: 845558676}
+      objectReference: {fileID: 0}
     - target: {fileID: 6028240398044176034, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: cam
       value: 

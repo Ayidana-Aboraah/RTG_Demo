@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour
 
 	private void Update()
 	{
+		if (stats.stopped) return;
 		UpdateTimers();
 		// UpdateAnimations();
 		InputCycles();
@@ -44,7 +45,7 @@ public class EnemyAI : MonoBehaviour
 	}
 
 	#region Basics
-	public void PoseHeal() { stats.hp += recovery; }
+	public void PoseHeal() => stats.hp += recovery;
 
 	public void Block(bool val)
 	{
@@ -122,13 +123,7 @@ public class EnemyAI : MonoBehaviour
 
 	#endregion
 
-	public virtual void InputCycles()
-	{
-		distance = Vector3.Distance(transform.position, target.position);
-	}
+	public virtual void InputCycles() => distance = Vector3.Distance(transform.position, target.position);
 
-	public virtual void Movement()
-	{
-		agent.SetDestination(target.position);
-	}
+	public virtual void Movement() => agent.SetDestination(target.position);
 }
