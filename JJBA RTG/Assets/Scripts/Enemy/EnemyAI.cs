@@ -45,7 +45,7 @@ public class EnemyAI : MonoBehaviour
 	}
 
 	#region Basics
-	public void PoseHeal() => stats.hp += recovery;
+	public void PoseHeal() => stats.TakeDamage(-recovery);
 
 	public void Block(bool val)
 	{

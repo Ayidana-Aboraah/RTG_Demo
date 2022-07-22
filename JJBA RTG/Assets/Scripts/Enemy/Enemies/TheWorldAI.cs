@@ -10,6 +10,8 @@ public class TheWorldAI : EnemyAI
     public Timer spawnTimer;
     TheWorld m_TheWorld;
 
+    bool phase3;
+
     internal override void Start()
     {
         base.Start();
@@ -50,16 +52,12 @@ public class TheWorldAI : EnemyAI
         #endregion
 
         #region Phase 3
-        if (stats.hp > 100) return;
+        if (stats.hp > 100 && !phase3) return;
 
-        if (distance <= poseDistance)
-        {
-            if (stats.blocking) Block(false);
-            if (posing) Pose(false);
-        }
-		else if (!posing)
-			if (!stats.blocking && stats.shieldHp > 0) Block(true);
-            else if (stats.shieldHp < 0) Pose(true);
+        phase3 = true;
+
+        if (distance < poseDistance) {if (posing) Pose(false);}
+        else Pose(true);
         #endregion
     }
 }

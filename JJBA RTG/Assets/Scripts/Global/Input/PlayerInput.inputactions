@@ -199,6 +199,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Focus",
+                    "type": "Button",
+                    "id": "780250d1-1015-47d0-8393-0f74341aeaf3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -276,6 +285,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Summon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76f2a8db-592b-4665-a29e-9d97bff4df4d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Focus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -502,15 +522,6 @@
             "id": "465e00c9-83d3-46ea-8cd0-b75e4a1c3cd8",
             "actions": [
                 {
-                    "name": "Focus",
-                    "type": "Button",
-                    "id": "1098a09f-2987-4994-b36a-d7a48c3d2cfa",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "MousePostition",
                     "type": "Value",
                     "id": "166c477f-22ae-444e-8a58-5c05b23b85cc",
@@ -521,17 +532,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "5f30b836-0841-4452-b61a-eed3a2cd2da4",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Focus",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "b6496c5f-7cef-4939-a4a8-7141ca7c663e",

@@ -733,7 +733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247936442}
-  m_LocalRotation: {x: 0.10977555, y: 0.0000000042755985, z: -4.7221005e-10, w: 0.99395645}
+  m_LocalRotation: {x: 0.10977555, y: -0.0000000042755985, z: 4.7221005e-10, w: 0.99395645}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1631,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -2040,7 +2041,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277852108}
-  m_LocalRotation: {x: 0.09167784, y: -0.00000001766124, z: 0.0000000016259918, w: 0.99578875}
+  m_LocalRotation: {x: 0.09167784, y: 0.000000017661243, z: -0.0000000016259919, w: 0.99578875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2920,6 +2921,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 845558675}
+--- !u!114 &1394007105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394007100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: de25255dafd76eb4793e39b57f749a40, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Base
+  m_DefaultActionMap: Menu
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 1612868647}
 --- !u!1 &1474950079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,7 +3619,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612868643}
-  m_LocalRotation: {x: 0.09167784, y: -0.00000001844339, z: 0.0000000015539668, w: 0.9957887}
+  m_LocalRotation: {x: 0.09167784, y: 0.000000018443394, z: -0.0000000015539576, w: 0.9957887}
   m_LocalPosition: {x: -1.2220405, y: 5.6800003, z: -13.918913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4241,6 +4272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
+  AutoEnableInputs: 1
   XYAxis: {fileID: -5630151704836100654, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   ZAxis: {fileID: 0}
 --- !u!1 &2004694726
@@ -4694,7 +4726,7 @@ MonoBehaviour:
     m_CurrentTime: 0
   distance: 0
   target: {fileID: 1570244635}
-  poseDistance: 2
+  poseDistance: 10
   throwMin: 3
   minion: {fileID: 0}
   spawnPoint: {fileID: 2052493573}
@@ -4758,11 +4790,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 150
+  maxHp: 99
   speed: 4
   durability: 0
   shieldHp: 0
-  maxShieldHp: 0
+  maxShieldHp: 25
   storedDmg: 0
   shieldRecovery:
     isRunning: 0
