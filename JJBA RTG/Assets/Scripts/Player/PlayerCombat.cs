@@ -36,23 +36,6 @@ public sealed class PlayerCombat : Combat{
 		// ATimers[2].maxTime = 0;
 	}
 
-    public void ClearStands()
-	{
-		standOn = false;
-		stand = null;
-		
-		// if (transform.childCount == 1) return; // The only thing in there right now is the stand inventory
-
-		//In case the method after this doesn't work
-		// for (int i = 0; i < transform.childCount; i++){
-		// 	StandBody body = transform.GetChild(i).GetComponent<StandBody>();
-		// 	if (body != null) body.Despawn();
-		// }
-
-		StandBody[] stands = GetComponentsInChildren<StandBody>();
-		foreach (StandBody body in stands) body.Despawn();
-	}
-
     internal override void Inputs()
 	{
 		input.Combat.Pose.started += _ =>   Pose();

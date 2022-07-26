@@ -38,6 +38,8 @@ public sealed class AudioManager : MonoBehaviour
 
 	public void Play(string name)
 	{
+		if (name == "") return;
+		
 		Sound s = Array.Find(sounds, sound => sound.name == name);
 		
 		if (s == null){

@@ -2,44 +2,38 @@ using UnityEngine;
 
 public sealed class StandStorage : MonoBehaviour
 {
-	public StandSlot[] slots = new StandSlot[6];
-	public PlayerCombat combat;
+    public StandSlot[] slots = new StandSlot[6];
+    public PlayerCombat combat;
 
-	private void Awake()
-	{
-		combat = GetComponentInParent<PlayerCombat>();
+    private void Awake()
+    {
+        combat = GetComponentInParent<PlayerCombat>();
+		for (int i = 0; i < slots.Length; i++) slots[i].Initialize();
+    }
 
-		foreach( StandSlot slot in slots) slot.Initialize();	
-	}
+    public void SwitchStand(int idx) // FIX: This function isn't working correctly, the player
+    {
+        if (combat.stand != null) combat.stand.Despawn();
+		combat.standOn = false;
 
-	public void SwitchStand(int idx)
-	{
-		combat.ClearStands();
+        slots[idx].standbody.Spawn(combat.transform);
+        slots[idx].standbody.stand.SetCooldowns(combat);
+        combat.stand = combat.transform.GetChild(2).GetComponent<StandBody>();
+    }
 
-		slots[idx].standbody.Spawn(combat.transform);
-		combat.stand = combat.GetComponentInChildren<StandBody>();
-		combat.standOn = true;
-		combat.ani.SetBool("Standless", false);
+    public void AddToStorage(StandBody newStand)
+    {
+        for (int i = 0; i <= slots.Length; i++)
+        {
+            if (!slots[i].full)
+            {
+                slots[i].addStand(newStand);
+                break;
+            }
+        }
+    }
 
-		slots[idx].standbody.stand.SetCooldowns(combat);
-	}
+    public void RemoveStand(int idx) => slots[idx].removeStand();
 
-	public void AddToStorage(StandBody newStand)
-	{
-		for (int i = 0; i <= slots.Length; i++)
-		{
-			if(!slots[i].full) continue;
-			
-			slots[i].addStand(newStand);
-			break;
-		}
-	}
-
-	public void RemoveStand(int idx){
-		slots[idx].removeStand();
-	}
-	
-	public void AddToExternalStorage(StandStorage external, int idx){
-		external.AddToStorage(slots[idx].standbody);
-	}
+    public void AddToExternalStorage(StandStorage external, int idx) => external.AddToStorage(slots[idx].standbody);
 }
