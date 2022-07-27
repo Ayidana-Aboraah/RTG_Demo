@@ -19,7 +19,7 @@ public sealed class SexPistols : Standx
 		
 		bullet.damageMultiplier = (bulletDmg *(pistols/2)) * stats.damageMultiplier;
 		bullet.pistolType = pistolType;
-		Instantiate(bullet.gameObject, firingPoint.position, transform.rotation, firingPoint);
+		Instantiate(bullet.gameObject, firingPoint.position, transform.rotation);
 		ammo--;
 	}
 

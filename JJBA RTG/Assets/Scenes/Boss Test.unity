@@ -617,7 +617,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247936442}
-  m_LocalRotation: {x: 0.10977555, y: -0.0000000042755985, z: 4.7221005e-10, w: 0.99395645}
+  m_LocalRotation: {x: 0.10977555, y: 0.0000000042755985, z: -4.7221005e-10, w: 0.99395645}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1925,7 +1925,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277852108}
-  m_LocalRotation: {x: 0.09167784, y: 0.000000017661243, z: -0.0000000016259919, w: 0.99578875}
+  m_LocalRotation: {x: 0.09167784, y: -0.00000001766124, z: 0.0000000016259918, w: 0.99578875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3194,6 +3194,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6028240398044176032, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
   m_PrefabInstance: {fileID: 6028240396659529403}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1570244638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6028240398044176044, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+  m_PrefabInstance: {fileID: 6028240396659529403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0287269f850cb6d4391523dc5f85a00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590571804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,7 +3223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1590571805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3279,8 +3290,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StandStorage, Assembly-CSharp
-        m_MethodName: SwitchStandless
+        m_TargetAssemblyTypeName: StandBody, Assembly-CSharp
+        m_MethodName: Despawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3473,7 +3484,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612868643}
-  m_LocalRotation: {x: 0.09167784, y: 0.000000018443394, z: -0.000000001553967, w: 0.9957887}
+  m_LocalRotation: {x: 0.09167784, y: -0.00000001844339, z: 0.0000000015539668, w: 0.9957887}
   m_LocalPosition: {x: -1.2220405, y: 5.6800003, z: -13.918913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3705,7 +3716,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708471153}
-  m_LocalRotation: {x: 0.073597685, y: 0.000000004289929, z: -3.1658742e-10, w: 0.99728805}
+  m_LocalRotation: {x: 0.073597685, y: -0.0000000042899297, z: 3.165875e-10, w: 0.99728805}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4849,6 +4860,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6028240397223931876, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+      propertyPath: combat
+      value: 
+      objectReference: {fileID: 1570244638}
+    - target: {fileID: 6028240397223931876, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: slots.Array.data[0].button
       value: 
       objectReference: {fileID: 1309212935}
@@ -4967,6 +4982,10 @@ PrefabInstance:
     - target: {fileID: 6028240398044176034, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: sensetivity
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028240398044176044, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+      propertyPath: stand
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6028240398044176047, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: m_Name

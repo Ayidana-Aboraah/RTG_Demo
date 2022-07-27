@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  body: {fileID: 6892887368814418763}
   ani: {fileID: 6892887368814418766}
   stand: {fileID: 3607559129577986135}
 --- !u!114 &3607559129577986135
@@ -180,8 +179,8 @@ MonoBehaviour:
     parent: {fileID: 6892887368814418762}
     opponent:
       serializedVersion: 2
-      m_Bits: 256
-    boxColor: {r: 0, g: 0, b: 0, a: 0}
+      m_Bits: 128
+    boxColor: {r: 0.9528302, g: 0.885413, b: 0.885413, a: 1}
   barrageBox:
     angle: {x: 0, y: 0, z: 0}
     range: 1.5
@@ -190,8 +189,8 @@ MonoBehaviour:
     parent: {fileID: 6892887368814418762}
     opponent:
       serializedVersion: 2
-      m_Bits: 256
-    boxColor: {r: 0, g: 0, b: 0, a: 0}
+      m_Bits: 128
+    boxColor: {r: 0.6462264, g: 0.7977135, b: 1, a: 1}
   heavyBox:
     angle: {x: 0, y: 0, z: 0}
     range: 2
@@ -200,8 +199,8 @@ MonoBehaviour:
     parent: {fileID: 6892887368814418762}
     opponent:
       serializedVersion: 2
-      m_Bits: 256
-    boxColor: {r: 0, g: 0, b: 0, a: 0}
+      m_Bits: 128
+    boxColor: {r: 0, g: 0, b: 0, a: 1}
   A1Box:
     angle: {x: 0, y: 0, z: 0}
     range: 1.76
@@ -211,7 +210,7 @@ MonoBehaviour:
     opponent:
       serializedVersion: 2
       m_Bits: 256
-    boxColor: {r: 1, g: 0.28773582, b: 0.28773582, a: 0}
+    boxColor: {r: 1, g: 0.28773582, b: 0.28773582, a: 1}
   A2Box:
     angle: {x: 0, y: 0, z: 0}
     range: 1
@@ -220,11 +219,8 @@ MonoBehaviour:
     parent: {fileID: 6892887368611358929}
     opponent:
       serializedVersion: 2
-      m_Bits: 256
-    boxColor: {r: 0, g: 0, b: 0, a: 0}
+      m_Bits: 128
+    boxColor: {r: 0, g: 0, b: 0, a: 1}
   A3Point: {fileID: 6892887368611358929}
   Bubble: {fileID: 2388232330213994440, guid: e5f2038b5386ae6449fac8d668f24caa, type: 3}
   GoBeyond: {fileID: 6458133139351448523, guid: abbd1ef4b82e1c14ebe233a9eb7f852f, type: 3}
-  wall:
-    serializedVersion: 2
-    m_Bits: 64

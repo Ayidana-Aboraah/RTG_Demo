@@ -7,14 +7,15 @@ public sealed class StandStorage : MonoBehaviour
 
     private void Awake()
     {
-        combat = GetComponentInParent<PlayerCombat>();
-		for (int i = 0; i < slots.Length; i++) slots[i].Initialize();
+        for (int i = 0; i < slots.Length; i++) slots[i].Initialize();
     }
 
     public void SwitchStand(int idx) // FIX: This function isn't working correctly, the player
     {
         if (combat.stand != null) combat.stand.Despawn();
-		combat.standOn = false;
+        
+        combat.standOn = true;
+        combat.ani.SetBool("Standless", false);
 
         slots[idx].standbody.Spawn(combat.transform);
         slots[idx].standbody.stand.SetCooldowns(combat);

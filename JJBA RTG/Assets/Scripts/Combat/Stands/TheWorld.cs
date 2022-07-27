@@ -37,7 +37,7 @@ public class TheWorld : Melee
 	
 	public override void A3()
 	{
-		Instantiate(knives, A3Point.position, parent.rotation, parent);
+		Instantiate(knives, A3Point.position, parent.rotation);
 	}
 
 	public virtual void A4(){

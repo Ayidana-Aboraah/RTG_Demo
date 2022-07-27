@@ -31,7 +31,7 @@ public sealed class SoftAndWet : Melee
 
 	public override void A3()
 	{
-		Instantiate(Bubble, A3Point.position, atkBox.parent.rotation, A3Point);
+		Instantiate(Bubble, A3Point.position, atkBox.parent.rotation);
 	}
 
 	public override void Ult(){}

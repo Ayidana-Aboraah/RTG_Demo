@@ -4,9 +4,9 @@ public class TheWorldAI : EnemyAI
 {
     [Header("Boss Vars")]
     public float poseDistance, throwMin;
-
-    public GameObject minion;
     public Transform spawnPoint;
+    public GameObject minion;
+
     public Timer spawnTimer;
     TheWorld m_TheWorld;
 
