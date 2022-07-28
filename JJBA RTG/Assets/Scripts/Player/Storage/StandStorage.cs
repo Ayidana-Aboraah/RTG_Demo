@@ -13,10 +13,10 @@ public sealed class StandStorage : MonoBehaviour
     public void SwitchStand(int idx)
     {     
         if (combat.stand != null) combat.stand.Despawn();
-        combat.standOn = true;
+        slots[idx].standbody.stand.SetCooldowns(combat);
         combat.ani.SetBool("Standless", false);
         slots[idx].standbody.Spawn(combat);
-        slots[idx].standbody.stand.SetCooldowns(combat);
+        combat.standOn = true;
     }
 
     public void AddToStorage(StandBody newStand)

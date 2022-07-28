@@ -140,10 +140,12 @@ MonoBehaviour:
   durability: 0
   shieldHp: 0
   maxShieldHp: 0
+  storedDmg: 0
   shieldRecovery:
     isRunning: 0
     complete: 0
     maxTime: 0
+    m_CurrentTime: 0
   blocking: 0
   blockType: 0
   hpMultiplier: 1
@@ -159,12 +161,12 @@ MonoBehaviour:
     parent: {fileID: 4715238338620955680}
     opponent:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 128
     boxColor: {r: 1, g: 0.6367924, b: 0.6367924, a: 1}
   lifeTime:
     isRunning: 0
     complete: 0
     maxTime: 1.5
+    m_CurrentTime: 0
   pistolType: 0
   target: {fileID: 0}
-  targeting: 0

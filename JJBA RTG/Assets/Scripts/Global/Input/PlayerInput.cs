@@ -523,6 +523,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Wheel"",
+                    ""type"": ""Button"",
+                    ""id"": ""c29fe2b0-8fa9-4cf0-a5e3-b32da008b9ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -534,6 +543,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b46eb368-4210-48a4-b8e3-0889dd755fc6"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Wheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -628,6 +648,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
+        m_Menu_Wheel = m_Menu.FindAction("Wheel", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_MousePostition = m_Camera.FindAction("MousePostition", throwIfNotFound: true);
@@ -934,11 +955,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Pause;
+    private readonly InputAction m_Menu_Wheel;
     public struct MenuActions
     {
         private @PlayerInput m_Wrapper;
         public MenuActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_Menu_Pause;
+        public InputAction @Wheel => m_Wrapper.m_Menu_Wheel;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -951,6 +974,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Wheel.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnWheel;
+                @Wheel.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnWheel;
+                @Wheel.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnWheel;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -958,6 +984,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Wheel.started += instance.OnWheel;
+                @Wheel.performed += instance.OnWheel;
+                @Wheel.canceled += instance.OnWheel;
             }
         }
     }
@@ -1046,6 +1075,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnPause(InputAction.CallbackContext context);
+        void OnWheel(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {

@@ -4,10 +4,12 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
 	public GameObject menu;
+	public bool action_wheel;
 
 	internal virtual void Start()
 	{
-		InputManager.input.Menu.Pause.started += _ => Evaluate();
+		if (action_wheel) InputManager.input.Menu.Wheel.started += _ => Evaluate();
+		else InputManager.input.Menu.Pause.started += _ => Evaluate();
 		menu.SetActive(false);
 	}
 

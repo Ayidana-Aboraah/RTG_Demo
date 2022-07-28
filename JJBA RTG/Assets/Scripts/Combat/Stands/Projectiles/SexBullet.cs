@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,7 +5,6 @@ public class SexBullet : Projectile
 {
     public int pistolType;
     public Transform target;
-    public bool targeting;
     Animator ani;
 
     internal override void Start()
@@ -38,18 +36,9 @@ public class SexBullet : Projectile
         }
     }
 
-    public void Targeting(Transform newTarget, Action b)
-    {
-        target = newTarget;
-        targeting = true;
-        b();
-        target = null;
-        targeting = false;
-    }
-
     public override void Move()
     {
-        if (!targeting)
+        if (target == null)
             base.Move();
         else
             rb.MovePosition(Vector3.MoveTowards(transform.position, target.position, speed));
@@ -63,8 +52,5 @@ public class SexBullet : Projectile
         ani.enabled = false;
     }
 
-    public void StopBarrage()
-    {
-        ani.SetBool("Barrage", false);
-    }
+    public void StopBarrage() => ani.SetBool("Barrage", false);
 }
