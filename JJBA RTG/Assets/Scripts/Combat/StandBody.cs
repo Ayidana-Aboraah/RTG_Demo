@@ -8,7 +8,7 @@ public sealed class StandBody : MonoBehaviour
 	public Standx stand;
 	//public SkillTree tree;
 
-	public void Spawn(Transform spawnPoint) => Instantiate(gameObject, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+	public void Spawn(PlayerCombat combat) => combat.stand = Instantiate(gameObject, combat.transform.position, combat.transform.rotation, combat.transform).GetComponent<StandBody>();
 
 	public void Update() => stand.ApplyAttributes();
 

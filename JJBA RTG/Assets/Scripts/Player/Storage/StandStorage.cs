@@ -10,16 +10,13 @@ public sealed class StandStorage : MonoBehaviour
         for (int i = 0; i < slots.Length; i++) slots[i].Initialize();
     }
 
-    public void SwitchStand(int idx) // FIX: This function isn't working correctly, the player
-    {
+    public void SwitchStand(int idx)
+    {     
         if (combat.stand != null) combat.stand.Despawn();
-        
         combat.standOn = true;
         combat.ani.SetBool("Standless", false);
-
-        slots[idx].standbody.Spawn(combat.transform);
+        slots[idx].standbody.Spawn(combat);
         slots[idx].standbody.stand.SetCooldowns(combat);
-        combat.stand = combat.transform.GetChild(2).GetComponent<StandBody>();
     }
 
     public void AddToStorage(StandBody newStand)
