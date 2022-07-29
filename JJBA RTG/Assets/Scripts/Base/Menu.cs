@@ -4,12 +4,10 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
 	public GameObject menu;
-	public bool action_wheel;
 
 	internal virtual void Start()
 	{
-		if (action_wheel) InputManager.input.Menu.Wheel.started += _ => Evaluate();
-		else InputManager.input.Menu.Pause.started += _ => Evaluate();
+		InputManager.input.Menu.Pause.started += _ => Evaluate();
 		menu.SetActive(false);
 	}
 
@@ -25,7 +23,6 @@ public class Menu : MonoBehaviour
 		Time.timeScale = 1f;
 		menu.SetActive(false);
 		Cursor.lockState = CursorLockMode.Locked;
-
 	}
 
 	public virtual void Evaluate()
@@ -45,8 +42,5 @@ public class Menu : MonoBehaviour
 			SceneManager.LoadScene(scene);
 	}
 	
-	public void QuitGame()
-	{
-		Application.Quit();
-	}
+	public void QuitGame() => Application.Quit();
 }
