@@ -45,7 +45,7 @@ public class Combat : MonoBehaviour
 
 	#region Basics
 
-	public void PoseHeal(){ stats.hp += recovery;}
+	public void PoseHeal() => stats.hp += recovery;
 
 	public void Pose(bool newState)
 	{

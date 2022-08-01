@@ -10,8 +10,6 @@ public sealed class PlayerCombat : Combat{
 		Inputs();
 	}
 
-    internal override void m_Update(){}
-
     public void Block() => Block(!stats.blocking);
 
     public void Pose() => Pose(!ani.GetBool("Posing"));

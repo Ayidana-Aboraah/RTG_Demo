@@ -36,10 +36,8 @@ public sealed class Standless : MonoBehaviour
 		heavyBox.Atk();
 	}
 
-	public void UltimateSL()
-	{
-		//Activate Thunder Cross split Attack! animation
-	}
+	public void UltimateSL(){} //Activate Thunder Cross split Attack! animation
+
 	#endregion
 
 	void OnDrawGizmos()

@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
+using Cinemachine;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
     public TMP_Dropdown resolutionDropdown;
-    Resolution[] resolutions;
     public AudioMixer mixer;
+    public GameObject Boss_bar; // TODO: Make a Minimaslist setting 
+    public CinemachineFreeLook cam; // TODO: Make a camera sensetivity setting
 
+    Resolution[] resolutions;
 
     void Start()
     {
@@ -25,7 +28,6 @@ public class SettingsMenu : MonoBehaviour
             options.Add(option);
 
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height) currentResolutionIndex = i;
-            // currentResolutionIndex = (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height) ? i : currentResolutionIndex;
         }
 
         resolutionDropdown.AddOptions(options);
@@ -38,22 +40,18 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
+    public void SetQuality(int qualityIndex) => QualitySettings.SetQualityLevel(qualityIndex);
 
-    public void SetVolume(float volume)
-    {
-        mixer.SetFloat("Volume", volume);
-    }
-
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
+    public void SetVolume(float volume) => mixer.SetFloat("Volume", volume);
 
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
         Screen.fullScreen = isFullScreen;
     }
+    public void SetMinimalist(bool minimal) => Boss_bar.SetActive(minimal);
+    
+    public void SetSensitivity(float val) => cam.m_YAxis.m_MaxSpeed = val;
 
     void SwitchControls(int idx){}
 }

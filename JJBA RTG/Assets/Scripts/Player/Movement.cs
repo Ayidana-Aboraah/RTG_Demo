@@ -52,11 +52,9 @@ public sealed class Movement : MonoBehaviour
 		}	
 	}
 
-
-
 	public void Jump()
 	{
-		if (stats.stopped) return; // NOTE: Remove this if we have an animation that calls this function
+		if (stats.stopped) return; // NOTE: Remove this if we have an animation that calls this function | Also, breaks control flow
 		
 		if (Physics.CheckSphere(transform.position + Vector3.down, .25f, ground))
 			jumps = maxJumps;
@@ -65,7 +63,6 @@ public sealed class Movement : MonoBehaviour
 			rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 			jumps -= 1;
 		}
-
 	}
 
 	public void Dash()
