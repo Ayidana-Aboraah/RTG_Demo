@@ -18,6 +18,8 @@ public class TheWorldAI : EnemyAI
     {
         base.InputCycles();
 
+        if (!stats.ani.GetCurrentAnimatorStateInfo(0).IsName("Idle")) return;
+
         #region Phase 1
         if (distance <= m_TheWorld.atkBox.range && !atkTimer.isRunning) Atk();
         else if (distance <= m_TheWorld.spAtkBox.range && !spAtkTimer.isRunning) SpAtk();

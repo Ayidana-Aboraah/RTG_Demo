@@ -9,11 +9,7 @@ public class EnemyCombat : Combat
     public float distance;
     internal NavMeshAgent agent;
 
-    internal override void m_Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = stats.speed;
-    }
+    internal override void m_Start() => agent = GetComponent<NavMeshAgent>();
 
     internal override void m_Update()
     {
@@ -21,9 +17,6 @@ public class EnemyCombat : Combat
         Inputs();
     }
 
-    public virtual void Movement()
-	{
-		agent.SetDestination(target.position);
-	}
+    public virtual void Movement() => agent.SetDestination(target.position);
     internal override void Inputs(){}
 }

@@ -27,6 +27,7 @@ public class Enemy : Stats
         var target = GetComponent<EnemyAI>().target;
         if (target != null) target.GetComponent<Player>().AddXp(xp); // If this enemy stores an item, probably give it to the player
         PrototypeProgression.Completed(boss); //Mostly just for the Demo
+        Destroy(boss_bar.gameObject);
         Destroy(gameObject);
     }
 }

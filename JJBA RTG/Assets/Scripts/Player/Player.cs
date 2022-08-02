@@ -6,13 +6,12 @@ public sealed class Player : Stats
 	public float xp, maxXp;
 	public int level, skillPoints;
 	// [Header("Death")] public GameObject deathMenu; //reimplement for online if nesseccary
-	PlayerHUD HUD;
+	public PlayerHUD HUD;
     internal Animator ani; // TODO: Put this in base during a refactor
 
 	internal override void Start() {
 		base.Start();
         ani = GetComponentInChildren<Animator>();
-		HUD = FindObjectOfType<PlayerHUD>();
 		HUD.SetMaxHealth((int)maxHp);
 	}
 
@@ -42,5 +41,6 @@ public sealed class Player : Stats
 		hp = maxHp;
 		shieldHp = maxShieldHp;
 		shieldRecovery.ResetTimer();
+		HUD.SetMaxHealth((int) maxHp);
 	}
 }

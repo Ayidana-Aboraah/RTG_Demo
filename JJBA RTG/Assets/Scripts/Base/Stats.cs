@@ -3,7 +3,7 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     [Header("Stats")]
-    public float hp, maxHp, speed = 1;
+    public float hp, maxHp;
     public int durability;
 
     [Header("Shield")]
@@ -12,7 +12,8 @@ public class Stats : MonoBehaviour
     public bool blocking;
     public int blockType;
 
-    [Header("Multipliers")] public float hpMultiplier = 1f, xpMultiplier = 1f, defenseMultiplier = 1f, damageMultiplier = 1f;
+    [Header("Multipliers")]
+    public float hpMultiplier = 1f, xpMultiplier = 1f, defenseMultiplier = 1f, damageMultiplier = 1f;
 
     [HideInInspector] public bool stopped;
 
@@ -28,7 +29,7 @@ public class Stats : MonoBehaviour
 
         if (damage < 0) newDamage = damage; //Turns into heal
 
-        if (blocking)
+        if (blocking && shieldHp > 0)
             switch (blockType)
             {
                 case 0:

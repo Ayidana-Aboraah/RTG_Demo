@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 0
-  speed: 3
+  speed: 5
   durability: 0
   shieldHp: 0
   maxShieldHp: 0

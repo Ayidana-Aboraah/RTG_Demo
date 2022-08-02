@@ -631,7 +631,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3070,6 +3070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845558674}
   - component: {fileID: 845558675}
+  - component: {fileID: 845558676}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -3148,10 +3149,23 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &845558676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845558673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5752ed6ac53f5c24484280b12d8bb1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 845558675}
 --- !u!1 &848889254
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,7 +4232,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1037548399}
-  - component: {fileID: 1037548400}
   m_Layer: 5
   m_Name: Player HUD
   m_TagString: Untagged
@@ -4248,19 +4261,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1037548400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037548398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5752ed6ac53f5c24484280b12d8bb1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 845558675}
 --- !u!1 &1040489935
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,7 +7116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1344609566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10643,6 +10643,7 @@ GameObject:
   - component: {fileID: 2052493571}
   - component: {fileID: 2052493576}
   - component: {fileID: 2052493570}
+  - component: {fileID: 2052493582}
   - component: {fileID: 2052493579}
   - component: {fileID: 2052493574}
   - component: {fileID: 2052493580}
@@ -10820,11 +10821,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2.5
+  m_AngularSpeed: 330
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -10846,7 +10847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 300
-  speed: 4
   durability: 0
   shieldHp: 0
   maxShieldHp: 25
@@ -10909,6 +10909,22 @@ MonoBehaviour:
     complete: 0
     maxTime: 0
     m_CurrentTime: 0
+--- !u!54 &2052493582
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052493569}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2078307428
 GameObject:
   m_ObjectHideFlags: 0
@@ -11453,7 +11469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784630576722383103, guid: 166e2bbd87f5d4847820ae5b9e0ef909, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166e2bbd87f5d4847820ae5b9e0ef909, type: 3}
@@ -11538,6 +11554,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6028240397229287254, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6028240398044176032, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -11586,6 +11606,10 @@ PrefabInstance:
       propertyPath: hp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6028240398044176033, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 845558676}
     - target: {fileID: 6028240398044176033, guid: fa7b3c38e53d6e14bb089d3cf99f0aa1, type: 3}
       propertyPath: maxHp
       value: 1000

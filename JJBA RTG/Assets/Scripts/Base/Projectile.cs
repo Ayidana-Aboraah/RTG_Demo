@@ -5,6 +5,7 @@ public class Projectile : Stats
 {
 	public Hitbox box;
 	public Timer lifeTime;
+	public float speed;
 	internal Rigidbody rb;
 	
 	internal override void Start()
