@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public sealed class StandAttribute : MonoBehaviour
 {
@@ -80,9 +81,9 @@ public sealed class StandAttribute : MonoBehaviour
                 Rigidbody rb = GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    GetComponent<Rigidbody>().useGravity = false;
-                    GetComponent<Rigidbody>().velocity = Vector3.zero;
-                }
+                    rb.useGravity = false;
+                    rb.velocity = Vector3.zero;
+                }else GetComponent<NavMeshAgent>().SetDestination(transform.position);
                 break;
         }
     }

@@ -8,10 +8,7 @@ public sealed class SoftAndWet : Melee
 	public GameObject Bubble, GoBeyond;
 	StandAttribute attributes;
 
-	public override void SpAtk()
-	{
-		Instantiate(GoBeyond, A3Point.position, parent.rotation, A3Point);
-	}
+	public override void SpAtk() => Instantiate(GoBeyond, A3Point.position, parent.rotation, A3Point);
 
 	public override void A1()
 	{
@@ -19,20 +16,11 @@ public sealed class SoftAndWet : Melee
 		A1Box.Effect(3, A1Box.damage / 2);
 	}
 
-	public void A1x2()
-	{
-		attributes.StartBuff(0, A1Box.damage, 0);
-	}
+	public void A1x2() => attributes.StartBuff(0, A1Box.damage, 0);
 
-	public override void A2()
-	{
-		A2Box.Effect(5, A2Box.range, A2Box.damage); // Defense Debuff
-	}
+	public override void A2() => A2Box.Effect(5, A2Box.range, A2Box.damage); // Defense Debuff
 
-	public override void A3()
-	{
-		Instantiate(Bubble, A3Point.position, atkBox.parent.rotation);
-	}
+	public override void A3() => Instantiate(Bubble, A3Point.position, atkBox.parent.rotation);
 
 	public override void Ult(){}
 
