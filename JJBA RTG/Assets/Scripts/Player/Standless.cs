@@ -2,10 +2,8 @@ using UnityEngine;
 
 public sealed class Standless : MonoBehaviour
 {
-	[Header("Standless")]
 	public Hitbox atkBox, barrageBox, heavyBox;
 
-	#region Standless Atks
 	public void AtkSL() => atkBox.Atk();
 
 	public void SpAtkSL() => GetComponent<Player>().shieldHp += 5;
@@ -37,8 +35,6 @@ public sealed class Standless : MonoBehaviour
 	}
 
 	public void UltimateSL(){} //Activate Thunder Cross split Attack! animation
-
-	#endregion
 
 	void OnDrawGizmos()
 	{
