@@ -9,11 +9,7 @@ public class Combat : MonoBehaviour
 
 	[Header("Posing")] public int recovery;
 
-	[Header("Cooldowns")]
-
-	public Timer spAtkTimer,ultTimer;
-	public Timer[] ATimers = new Timer[9]; // if !utilized just remove
-
+	[Header("Cooldowns")] public Timer ultTimer; // TODO: Set a universal value for the max for this
 	internal Animator ani;
 	internal Stats stats;
 
@@ -23,23 +19,12 @@ public class Combat : MonoBehaviour
 		ani = GetComponentInChildren<Animator>(); // NOTE: A bug might appear where it call
 		
 		m_Start();
-
-		if (stand == null) standOn = false;
-		else {
-			standOn = true;
-			
-			spAtkTimer.maxTime = 0; //Set to default values
-			ultTimer.maxTime = 0;
-
-			ATimers[0].maxTime = 0;
-			ATimers[1].maxTime = 0;
-			ATimers[2].maxTime = 0;
-		}
+		standOn = (stand == null) ? false : true;
 	}
 
 	internal void Update()
 	{
-		UpdateTimers();
+		ultTimer.UpdateTimer();
 		m_Update();
 	}
 
@@ -78,7 +63,7 @@ public class Combat : MonoBehaviour
 
 	public void SpAtk()
 	{
-		if (spAtkTimer.isRunning || stats.stopped) return;
+		if (stats.stopped) return;
 
 		ani.SetTrigger("SpAtk");
 		if (standOn) stand.ani.SetTrigger("SpAtk");
@@ -102,7 +87,7 @@ public class Combat : MonoBehaviour
 
 	public void A(int AType, int TypeVariant)
 	{
-		if (ATimers[AType].isRunning || stats.stopped) return;
+		if (stats.stopped) return;
 
 		ani.SetTrigger("A" + AType + "." + TypeVariant);
 		if (standOn) stand.ani.SetTrigger("A" + AType + "." + TypeVariant);
@@ -115,18 +100,6 @@ public class Combat : MonoBehaviour
 		
 		if (standOn) stand.stand.Ult();
 		else ani.SetTrigger("Ult"); //Fill in until we add a proper ultimate technique
-	}
-
-	#endregion
-
-	#region Tools/Maintainance
-
-	private void UpdateTimers()
-	{
-		spAtkTimer.UpdateTimer();
-		ultTimer.UpdateTimer();
-
-		foreach(Timer timer in ATimers) timer.UpdateTimer();
 	}
 
 	#endregion

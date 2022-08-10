@@ -14,7 +14,6 @@ public sealed class StandStorage : MonoBehaviour
     {     
         if (combat.stand != null) combat.stand.Despawn();
         
-        slots[idx].standbody.stand.SetCooldowns(combat);
         combat.ani.SetBool("Standless", false);
         slots[idx].standbody.Spawn(combat);
         combat.standOn = true;

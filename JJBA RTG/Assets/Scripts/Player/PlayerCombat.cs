@@ -22,16 +22,6 @@ public sealed class PlayerCombat : Combat{
 		stand.gameObject.SetActive(standOn);
 
 		ani.SetBool("Standless", !standOn);
-
-		// Commented due to a possible no cooldown bug for these things, so best to leave it out while testing
-		// if (standOn) return;
-
-		// spAtkTimer.maxTime = 0;
-		// ultTimer.maxTime = 0;
-		
-		// ATimers[0].maxTime = 0;
-		// ATimers[1].maxTime = 0;
-		// ATimers[2].maxTime = 0;
 	}
 
     internal override void Inputs()

@@ -23,8 +23,8 @@ public class Projectile : Stats
 		lifeTime.UpdateTimer();
 		if (stopped) return;
 		
-		if(lifeTime.complete)	Destroy(gameObject);
-		if(box.parent != null) Atk();
+		else if (lifeTime.complete)	Destroy(gameObject);
+		else if (box.parent != null) Atk();
 		
 		Move();
 	}
@@ -34,17 +34,9 @@ public class Projectile : Stats
 		if(box.AtkProjectile(damageMultiplier))	Destroy(gameObject);
 	}
 	
-	public virtual void Move()
-	{
-		rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Impulse);
-	}
+	public virtual void Move() => rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Impulse);
 
-	internal virtual void DrawBoxes(){
-		box.DrawHitBox();
-	}
+	internal virtual void DrawBoxes() => box.DrawHitBox();
 
-	void OnDrawGizmosSelected()
-	{
-		DrawBoxes();
-	}	
+	void OnDrawGizmosSelected() => DrawBoxes();
 }
