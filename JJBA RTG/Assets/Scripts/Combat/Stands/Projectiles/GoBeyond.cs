@@ -6,18 +6,14 @@ public class GoBeyond : Projectile
 	public float targetRange;
 	public Transform target;
 	
-	internal override void Start(){
-		base.Start();
-		InputManager.input.A.A4.started += _ => Target();
-	}
-	
 	public override void Move()
 	{
 		if(target != null)
 			rb.MovePosition(Vector3.MoveTowards(rb.position, target.position, speed/3 * Time.deltaTime));
 	}
 	
-	public void Target(){
+	public void Target(Transform parent){
+		box.parent = parent;
 		Collider[] hits = Physics.OverlapSphere(transform.position, targetRange, box.opponent);
 		foreach(Collider hit in hits)
 			if(hit.transform != box.parent){

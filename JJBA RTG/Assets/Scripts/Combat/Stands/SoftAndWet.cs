@@ -6,9 +6,14 @@ public sealed class SoftAndWet : Melee
 	public Hitbox A1Box, A2Box;
 	public Transform A3Point;
 	public GameObject Bubble, GoBeyond;
+	public GoBeyond current_beyond;
 	StandAttribute attributes;
+	LayerMask wall;
 
-	public override void SpAtk() => Instantiate(GoBeyond, A3Point.position, parent.rotation, A3Point);
+	public override void SpAtk(){
+		if (current_beyond != null) current_beyond.Target(parent);
+		else current_beyond = Instantiate(GoBeyond, A3Point.position, parent.rotation).GetComponent<GoBeyond>();
+	}
 
 	public override void A1()
 	{
@@ -26,7 +31,7 @@ public sealed class SoftAndWet : Melee
 
 	public override void ApplyAttributes()
 	{
-		if (Physics.CheckSphere(parent.position, 2.5f, 6)) // 6 = Wall
+		if (Physics.CheckSphere(parent.position, 2.5f, wall)) // 6 = Wall
 			parent.GetComponent<Rigidbody>().useGravity = false;
 		else if (parent.GetComponent<Rigidbody>().useGravity)
 			parent.GetComponent<Rigidbody>().useGravity = true;
@@ -36,6 +41,7 @@ public sealed class SoftAndWet : Melee
 	{
 		base.initialize();
 		attributes = GetComponentInParent<StandAttribute>();
+		wall = LayerMask.GetMask("Wall");
 	}
 
 	public override void DrawBoxes(){
